@@ -14,12 +14,12 @@ module.exports = class Ban extends Command {
     msg.delete()
 
     if (!args[0]) return msg.reply('Mencione um usuário!').then(m => m.delete(5000))
-    const reason = args.slice(1).join(' ') || 'Sem motivo'
+    const reason = args.slice(1).join(' ') || 'Não informado'
 
     if (!member.hasPermission('BAN_MEMBERS')) return msg.reply('<a:atencao:723878171216314448> Você não tem permissão para isso! <a:atencao:723878171216314448>').then(m => m.delete(5000))
     if (!me.hasPermission('BAN_MEMBERS')) return msg.reply('<a:1475:723879475078627328> Eu não tenho permissão para isso!').then(m => m.delete(5000))
 
-    const toBan = mentions.members.first() || guild.members.get(args[0])
+    const toBan = mentions.members.first() || guild.members.cache.get(args[0])
 
     if (!toBan) return msg.reply('Não foi possível encontrar esse usuário, tente novamente.').then(m => m.delete(5000))
     if (toBan.id === member.id) return msg.reply('Você não pode banir você mesmo bobinho...').then(m => m.delete(5000))
@@ -27,15 +27,16 @@ module.exports = class Ban extends Command {
 
     const embed = new MessageEmbed()
       .setThumbnail(toBan.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-      .setAuthor(member.displayName, member.user.displayAvatarURL({ dynamic: true }))
+      .setAuthor(`• ${member.displayName}`, member.user.displayAvatarURL({ dynamic: true }))
       .setTitle('**Ação | Ban**')
-      .addField('<a:dc:723878284517048332> Staff:', member)
-      .addField('ID Staff:', member)
-      .addField('Usuário Banido:', toBan)
-      .addField('ID banido:', toBan)
-      .addField('📝 Motivo:', reason)
+      .addField('<a:dc:723878284517048332> Staff:', member, true)
+      .addField('ID Staff:', member.id, true)
+      .addField('\u2800', '\u2800')
+      .addField('Usuário Banido:', toBan, true)
+      .addField('ID banido:', toBan.id, true)
+      .addField('📝 Motivo:', `\`\`\`${reason}\`\`\``)
       .setImage('https://cdn.discordapp.com/attachments/592009484520390680/677227742760140800/H98LML4.gif')
-      .setFooter(`• Autor: ${member.tag}`, member.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
+      .setFooter(`• Autor: ${member.user.tag}`, member.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
       .setColor('RANDOM')
 
     channel.send(embed)
