@@ -40,6 +40,6 @@ module.exports = class Ban extends Command {
 
     channel.send(embed)
 
-    // toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('Não foi possivel banir esse usuario') })
+    toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('Não foi possivel banir esse usuario') })
   }
 }
