@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "indent": [
+      "warn",
+      2
+    ],
+    "eqeqeq": [
+      "error",
+      "smart"
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "env": {
+    "node": true
+  }
+}
