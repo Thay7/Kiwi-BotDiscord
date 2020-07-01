@@ -12,7 +12,11 @@ module.exports = class Say extends Command {
   run({ args, channel, msg, client }){
 
     var list = [
-      'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif'
+      'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif',
+      'https://i.imgur.com/EozsOgA.gif',
+      'https://i.imgur.com/SMskPot.gif',
+      'https://i.imgur.com/VW0cOyL.gif',
+      'https://i.imgur.com/RFWNaoF.gif'
       
       
     ]
