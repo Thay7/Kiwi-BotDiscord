@@ -12,9 +12,9 @@ module.exports = class Say extends Command {
   run({ args, channel, msg, client }){
 
     var list = [
-      'https://media.tenor.com/images/adac1010ab5c586bc11386caafe47dc4/tenor.gif',
-      'https://media.tenor.com/images/4e548e93b7e5f0842578a755472796ee/tenor.gif',
-      'https://media.tenor.com/images/6dbd997e3e79f21b7841b244833325c0/tenor.gif'
+      'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif'
+      
+      
     ]
 
     var rand = list[Math.floor(Math.random() * list.length)]
