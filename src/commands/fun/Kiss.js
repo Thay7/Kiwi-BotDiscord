@@ -14,7 +14,16 @@ module.exports = class Say extends Command {
     var list = [
       'https://imgur.com/iclUiUN.gif',
       'https://imgur.com/lYQt9rx.gif',
-      'https://imgur.com/w1TU5mR.gif'
+      'https://imgur.com/w1TU5mR.gif',
+      'https://i.imgur.com/OE7lSSY.gif',
+      'https://i.imgur.com/i1PIph3.gif',
+      'https://i.imgur.com/WVSwvm6.gif',
+      'https://i.imgur.com/sZhtvBR.gif',
+      'https://i.imgur.com/So3TIVK.gif',
+      'https://i.imgur.com/q340AoA.gif',
+      'https://i.imgur.com/OjTBV8G.gif',
+      'https://i.imgur.com/SeCRpPp.gif'
+
     ]
 
     var rand = list[Math.floor(Math.random() * list.length)]
