@@ -38,8 +38,8 @@ module.exports = class Div extends Command {
 
       const embed = new MessageEmbed()
         .setThumbnail(msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-        .setAuthor('Kyatsu | Divulgador', member.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-        .addField(`Divulgador: ${img}`,  `Convidou um total de **${Number(inviteCount)}** novato(s). `,true)
+        .setAuthor('Kyatsu | Divulgador')
+        .addField(`Divulgador: ${img}`,  `Convidou um total de **${Number(inviteCount)}** `,true)
         .addField('Convites:',`${convitesAtivos  ? convitesAtivos : `**${img}** não possui convites no servidor.`}`,false)
         .setFooter(`• Autor: ${member.user.tag}`, member.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
         .setColor('RANDOM')
