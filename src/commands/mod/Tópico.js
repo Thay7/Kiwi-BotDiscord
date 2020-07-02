@@ -25,7 +25,8 @@ module.exports = class Tópico extends Command {
       message.reply('O tópico só pode conter 1024 caracteres')
       return 0
     }
-    channel.send(`Você definiu a mensagem: **${text}** | no tópico do servidor!`)
-    
+    message.channel.setTopic(text).then(() => {
+      message.reply(`Você definiu a mensagem: **${text}** | no tópico do servidor!`)
+    }).catch(()=>{})
   }
 }
