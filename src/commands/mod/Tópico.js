@@ -26,7 +26,7 @@ module.exports = class Tópico extends Command {
       return 0
     }
     message.channel.setTopic(text).then(() => {
-      message.reply(`Você definiu a mensagem: **${text}** | no tópico do servidor!`)
+      channel.send(`Você definiu a mensagem: **${text}** | no tópico do servidor!`)
     }).catch(()=>{})
   }
 }
