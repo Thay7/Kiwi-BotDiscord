@@ -16,7 +16,7 @@ module.exports = class Avatar extends Command {
     let avatar = user.avatarURL({ dynamic: true, format: 'png', size: 1024 })
   
     let embed = new MessageEmbed() 
-      .setTitle(`Avatar de ${user.username}`) 
+      .setTitle(`\:icons8fotografia100: ${user.username}`) 
       .setDescription(`**[Clique aqui para baixar!](${user.displayAvatarURL({dynamic : true})})**`)
       .setImage(avatar) 
       .setFooter(`• Autor: ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic : true}))
