@@ -13,17 +13,17 @@ module.exports = class Ban extends Command {
 
     msg.delete()
 
-    if (!args[0]) return msg.reply('Mencione um usuário!').then(m => m.delete(5000))
+    if (!args[0]) return msg.reply('mencione um usuário!').then(m => m.delete(5000))
     const reason = args.slice(1).join(' ') || 'Não informado'
 
-    if (!member.hasPermission('BAN_MEMBERS')) return msg.reply('<a:atencao:723878171216314448> Você não tem permissão para isso! <a:atencao:723878171216314448>').then(m => m.delete(5000))
-    if (!me.hasPermission('BAN_MEMBERS')) return msg.reply('<a:1475:723879475078627328> Eu não tenho permissão para isso!').then(m => m.delete(5000))
+    if (!member.hasPermission('BAN_MEMBERS')) return msg.reply('você não tem permissão!').then(m => m.delete(5000))
+    if (!me.hasPermission('BAN_MEMBERS')) return msg.reply('eu não tenho permissão!').then(m => m.delete(5000))
 
     const toBan = mentions.members.first() || guild.members.cache.get(args[0])
 
-    if (!toBan) return msg.reply('Não foi possível encontrar esse usuário, tente novamente.').then(m => m.delete(5000))
-    if (toBan.id === member.id) return msg.reply('Você não pode banir você mesmo bobinho...').then(m => m.delete(5000))
-    if (!toBan.bannable) return msg.reply('Não posso banir essa pessoa!').then(m => m.delete(5000))
+    if (!toBan) return msg.reply('não foi possível encontrar esse usuário, tente novamente!').then(m => m.delete(5000))
+    if (toBan.id === member.id) return msg.reply('você não pode banir você mesmo bobinho...').then(m => m.delete(5000))
+    if (!toBan.bannable) return msg.reply('não posso banir essa pessoa!').then(m => m.delete(5000))
 
     const embed = new MessageEmbed()
       .setThumbnail(toBan.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
@@ -41,6 +41,6 @@ module.exports = class Ban extends Command {
 
     channel.send(embed)
 
-    toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('Não foi possivel banir esse usuario') })
+    toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('não foi possivel banir esse usuario!') })
   }
 }
