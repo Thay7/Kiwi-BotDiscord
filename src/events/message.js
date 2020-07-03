@@ -24,7 +24,7 @@ module.exports = class extends Event {
     const cmdQuery = args.shift().toLowerCase(),
       cmd = this.commands.find(c => c.name === cmdQuery || c.aliases.includes(cmdQuery))
 
-    if (cmd) return cmd.run(ctx(this, msg, args))
+    if (cmd) return cmd.init(ctx(this, msg, args))
   }
 }
 

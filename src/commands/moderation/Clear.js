@@ -6,7 +6,7 @@ module.exports = class Clear extends Command {
     super(client)
     this.name = 'clear'
     this.aliases = ['limpar']
-    this.category = 'mod'
+    this.category = 'moderation'
   }
 
   async run({ msg, args, member }) {
