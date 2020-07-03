@@ -12,7 +12,7 @@ module.exports = class Clear extends Command {
   async run({ msg, args, member }) {
     if(!member.hasPermission('MANAGE_MESSAGES')) return msg.reply('**Você não tem permissão para limpar o chat!** <a:atencao:723878171216314448>')
     if (!msg.guild.me.hasPermission('MANAGE_MESSAGES')) return msg.reply('**Eu não tenho permissão para apagar mensagens nesse servidor.** <a:AtencaoBDI:723884702271930368>')
-    if(!args[0]) return msg.reply('Fale uma quantidade de mensagens! <a:yoeEstrelaBDI:723881976674910262>')
+    if(!args[0]) return msg.reply('você precisa informar quantas mensagens serão deletadas!')
 
     let quantity = args[0]
 
