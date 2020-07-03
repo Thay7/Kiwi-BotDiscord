@@ -1,7 +1,7 @@
 const { Client, Collection } = require('discord.js')
 const LoadersManager = require('./lib/LoadersManager')
 
-module.exports = class Nezuko extends Client {
+module.exports = class Kyatsu extends Client {
   constructor(options = {}) {
     super(options)
     this.token = options.token

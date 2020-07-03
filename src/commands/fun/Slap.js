@@ -1,5 +1,6 @@
 const Command = require('../../lib/strucutures/Command')
 const { MessageEmbed } = require('discord.js')
+const neko = new (require('nekos.life'))
 
 module.exports = class Say extends Command {
   constructor(client){
@@ -9,34 +10,19 @@ module.exports = class Say extends Command {
     this.category = 'fun'
   }
 
-  run({ args, channel, msg, client }){
+  async run({ channel, mentions, client, author, args }){
+    const img = await neko.sfw.slap()
+    const user = mentions.users.first() || client.users.cache.get(args[0])
 
-    var list = [
-      'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif',
-      'https://i.imgur.com/EozsOgA.gif',
-      'https://i.imgur.com/SMskPot.gif',
-      'https://i.imgur.com/VW0cOyL.gif',
-      'https://i.imgur.com/RFWNaoF.gif'
-      
-      
-    ]
+    if (!user) return msg.reply('você precisa mencionar um usuário!')
 
-    var rand = list[Math.floor(Math.random() * list.length)]
-    let user = msg.mentions.users.first() || client.users.cache.get(args[0])
-    if (!user) {
-      return msg.reply('você precisa mencionar um usuário!')
-    }
-    /*
-    message.channel.send(`${message.author.username} **acaba de beijar** ${user.username}! :heart:`, {files: [rand]});
-    */
-    let avatar = msg.author.displayAvatarURL({format: 'png'})
-    let embed = new MessageEmbed()
-      .setColor('#000000')
-      .setDescription(`${msg.author} meteu a porrada em ${user}!`)
-      .setImage(rand)
-      .setFooter(`• Autor: ${msg.author.tag}`)
+    const embed = new MessageEmbed()
+      .setColor('RANDOM')
+      .setDescription(`${author} deu um tapa em ${user}!`)
+      .setImage(img.url)
+      .setFooter(`• Autor: ${author.tag}`)
       .setTimestamp()
-      .setAuthor(msg.author.tag, avatar)
+      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
     channel.send(embed)
   }

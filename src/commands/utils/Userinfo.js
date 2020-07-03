@@ -1,41 +1,63 @@
 const Command = require('../../lib/strucutures/Command')
 const { MessageEmbed } = require('discord.js')
+const moment = require('moment')
 
 module.exports = class Userinfo extends Command {
   constructor(client) {
     super(client)
     this.name = 'userinfo'
-    this.aliases = ['us']
     this.category = 'utils'
   }
 
-  run({ channel, msg, args, client, member }) {
-       let inline = true
-    let resence = true
-    const status = {
-        streaming: "<:streaming:723567165646700565>Transmitindo",  
-        online: "<:online:723542242429501560>Online",
-        idle: "<:idle:723561325829029898>Ausente",
-        dnd: "<:dnd:723561233982160957>Não Perturbe",
-        offline: "<:offline:723561421761282118>Offline/Invisível"
-      }
-        
-const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-let pessoa = message.mentions.users.first() || message.author
+  async run({ channel, args, mentions, member }) {
+    const guildMember = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]).catch(_ => member) : member
+    const user = guildMember.user ? guildMember.user : guildMember
 
-              const embed = new MessageEmbed()
-                .setThumbnail(pessoa.displayAvatarURL())
-                .setColor("RANDOM")
-                .addField("Nome e Tag", `${member.user.tag}`, true)
-                .addField("ID", member.user.id, inline)
-                .addField("Apelido do User no Servidor:", `${member.nickname !== null ? `${member.nickname}` : "Não possui"}`, true)
-                .addField("Status", `${status[member.user.presence.status]}`, inline, true)
-                .addField("🎮Jogando", `${member.user.presence.game ? `🎮 ${member.user.presence.game.name}` : "Não está jogando"}`,inline, true)
-                .addField("Criou a conta em:", moment(member.user.createdAt).format("LLL"))
-                .setFooter(`Userinfo de ${member.user.username}`)
-                .setTimestamp()
-    
-            message.channel.send(embed);
+    if (!user && !guildMember) return channel.send('Membro não encontrado')
+
+    const customStatus = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS')
+    const games = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS').map(a => a.name)
+
+    const embed = new MessageEmbed()
+      .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+      .setColor('RANDOM')
+      .addFields([
+        {
+          name: 'Tag',
+          value: `\`${user.tag}\``,
+          inline: true
+        },
+        {
+          name: 'ID',
+          value: `\`${user.id}\``,
+          inline: true
+        },
+        {
+          name: 'Apelido do User no Servidor',
+          value: `\`${guildMember.nickname ? guildMember.nickname : 'Não definido'}\``,
+          inline: false
+        },
+        {
+          name: 'Status',
+          value: `\`${user.presence.status}\``
+        },
+        {
+          name: 'Status personalizado',
+          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus.state}\``,
+        },
+        {
+          name: 'Jogando',
+          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``
+        },
+        {
+          name: 'Criou a conta em',
+          value: moment(user.createdAt).format('LLL')
+        }
+      ])
+      .setFooter(`Userinfo de ${user.username}`)
+      .setTimestamp()
+
+    channel.send(embed)
   }
 
 }

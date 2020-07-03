@@ -1,10 +1,11 @@
-const Nezuko = require('./src/Nezuko')
+const Nezuko = require('./src/Kyatsu')
 const express = require('express')
 const app = express()
 
 const bot = new Nezuko({
   token: process.env.TOKEN,
-  prefixes: process.env.PREFIXES.split(',')
+  prefixes: process.env.PREFIXES.split(','),
+  owners: process.env.OWNERS.split(',')
 })
 
 bot.launch()

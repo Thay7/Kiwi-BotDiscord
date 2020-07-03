@@ -6,7 +6,7 @@ module.exports = class Ban extends Command {
     super(client)
     this.name = 'ban'
     this.aliases = ['banir']
-    this.category = 'mod'
+    this.category = 'moderation'
   }
 
   run({ channel, msg, args, member, me, mentions, guild }) {
