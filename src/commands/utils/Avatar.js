@@ -9,21 +9,17 @@ module.exports = class Avatar extends Command {
     this.category = 'utils'
   }
 
-  run({ channel, msg, args, client }) {
+  async run({ channel, mentions, args, author }) {
+    const user = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]) : author
+    const avatarUrl = user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })
 
-    let user = msg.mentions.users.first() || client.users.cache.get(args[0]) || msg.author
-    
-    let avatar = user.avatarURL({ dynamic: true, format: 'png', size: 1024 })
-  
-    let embed = new MessageEmbed() 
-      .setTitle(`Avatar de ${user.username}`) 
-      .setDescription(`**[Clique aqui para baixar!](${user.displayAvatarURL({dynamic : true})})**`)
-      .setImage(avatar) 
-      .setFooter(`• Autor: ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic : true}))
-      .setColor('RANDOM') 
-    channel.send(embed) 
-  
-  };
-   
-  
+    const embed = new MessageEmbed()
+      .setColor('RANDOM')
+      .setDescription(`Avatar de ${user}`)
+      .setImage(avatarUrl)
+      .setFooter(`• Autor: ${author.tag}`)
+      .setTimestamp()
+      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+    channel.send(embed)
+  }
 }
