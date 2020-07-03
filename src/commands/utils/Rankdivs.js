@@ -4,8 +4,8 @@ const { MessageEmbed } = require('discord.js')
 module.exports = class Divulgadores extends Command {
   constructor(client) {
     super(client)
-    this.name = 'divulgadores'
-    this.aliases = ['divulgadores']
+    this.name = 'rankdivs'
+    this.aliases = ['divs']
     this.category = 'utils'
   }
 
