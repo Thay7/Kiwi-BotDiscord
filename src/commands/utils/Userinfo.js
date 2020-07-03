@@ -16,7 +16,7 @@ module.exports = class Userinfo extends Command {
     if (!user && !guildMember) return channel.send('Membro não encontrado')
 
     const customStatus = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS')
-    const games = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS').map(a => a.name)
+    const games = guildMember.presence.activities.filter(a => a.type === 'PLAYING').map(a => a.name)
 
     const embed = new MessageEmbed()
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
