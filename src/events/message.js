@@ -1,4 +1,5 @@
 const Event = require('../lib/strucutures/Event')
+const queue = new Map()
 
 module.exports = class extends Event {
   constructor() {
