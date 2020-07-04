@@ -1,6 +1,7 @@
 const Command = require('../../lib/strucutures/Command')
 const { MessageEmbed } = require('discord.js')
 const moment = require('moment')
+moment.locale('pt-BR')
 
 module.exports = class Userinfo extends Command {
   constructor(client) {
@@ -17,6 +18,7 @@ module.exports = class Userinfo extends Command {
 
     const customStatus = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS')
     const games = guildMember.presence.activities.filter(a => a.type === 'PLAYING').map(a => a.name)
+    
 
     const embed = new MessageEmbed()
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
@@ -33,7 +35,7 @@ module.exports = class Userinfo extends Command {
           inline: true
         },
         {
-          name: 'Apelido do User no Servidor',
+          name: 'Apelido do user no Servidor',
           value: `\`${guildMember.nickname ? guildMember.nickname : 'Não definido'}\``,
           inline: false
         },
@@ -44,18 +46,28 @@ module.exports = class Userinfo extends Command {
         {
           name: 'Status personalizado',
           value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``,
+          inline: true
         },
         {
           name: 'Jogando',
-          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``
+          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
+          inline: false
         },
         {
           name: 'Criou a conta em',
-          value: moment(user.createdAt).format('LLL')
+          value: moment(user.createdAt).format('LLL'),
+          inline: true
+        },
+        {
+          name: 'Entrou no servidor:',
+          value: moment(member.joinedTimestamp).format('LLL'),
+          inline: false
         }
       ])
       .setFooter(`Userinfo de ${user.username}`)
       .setTimestamp()
+
+
 
     channel.send(embed)
   }
