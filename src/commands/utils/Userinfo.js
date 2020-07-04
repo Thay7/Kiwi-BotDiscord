@@ -10,7 +10,7 @@ module.exports = class Userinfo extends Command {
     this.category = 'utils'
   }
 
-  async run({ channel, args, mentions, member }) {
+  async run({ channel, args, mentions, member, msg }) {
     const guildMember = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]).catch(_ => member) : member
     const user = guildMember.user ? guildMember.user : guildMember
 
@@ -18,26 +18,25 @@ module.exports = class Userinfo extends Command {
 
     const customStatus = guildMember.presence.activities.filter(a => a.type === 'CUSTOM_STATUS')
     const games = guildMember.presence.activities.filter(a => a.type === 'PLAYING').map(a => a.name)
-    
 
     const embed = new MessageEmbed()
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('RANDOM')
+      .setColor('#8A0829')
       .addFields([
         {
-          name: 'Tag',
+          name: '<:kyatsu_user:728800397585678389> Tag',
           value: `\`${user.tag}\``,
           inline: true
         },
         {
-          name: 'ID',
+          name: '<:kyatsu_tag:728800399515189289> ID',
           value: `\`${user.id}\``,
           inline: true
         },
         {
-          name: 'Apelido do user no Servidor',
-          value: `\`${guildMember.nickname ? guildMember.nickname : 'Não definido'}\``,
-          inline: false
+          name: '<:kyatsu_useredit:729083767917903903> Apelido',
+          value: `${guildMember.nickname ? guildMember.nickname : 'Sem apelido...👀'}`,
+          inline: true
         },
         {
           name: 'Status',
@@ -45,26 +44,24 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: 'Status personalizado',
-          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``,
-          inline: true
+          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``
         },
         {
-          name: 'Jogando',
-          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
-          inline: false
+          name: '<:kyatsu_controle:729087404308299841> Jogando',
+          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``
         },
         {
-          name: 'Criou a conta em',
+          name: '<:kyatsu_calendario:728800397220642886>  Criou a conta em',
           value: moment(user.createdAt).format('LLL'),
           inline: true
         },
         {
-          name: 'Entrou no servidor:',
+          name: '<:kyatsu_entrar:729086247233912853> Entrou no servidor:',
           value: moment(member.joinedTimestamp).format('LLL'),
-          inline: false
+          inline: true
         }
       ])
-      .setFooter(`Userinfo de ${user.username}`)
+      .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       .setTimestamp()
 
 

@@ -34,7 +34,7 @@ module.exports = class Divulgadores extends Command {
     embed
       .addField('Total/Recrutados', `<a:dc:723878284517048332> ~ ${total}`, true)
       .addField('Total/Convites', `<a:1598:723878723853746258> ~ ${invites.size}`, true)
-      .setFooter(`• Autor: ${member.user.tag}`, member.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
+      .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       .setColor('RANDOM')
 
     channel.send(embed)
