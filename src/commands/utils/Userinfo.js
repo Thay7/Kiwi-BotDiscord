@@ -43,7 +43,7 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: 'Status personalizado',
-          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state}\``,
+          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``,
         },
         {
           name: 'Jogando',

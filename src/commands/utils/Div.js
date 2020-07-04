@@ -20,7 +20,7 @@ module.exports = class Div extends Command {
       .setThumbnail(guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       .setAuthor('Kyatsu | Divulgador')
       .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `Convidou um total de **${userInvites.reduce((p, v) => v.uses + p, 0)}** `, true)
-      .addField('Convites:', `${userInvites.length === 0 ?  `**${guildMember}** não possui convites no servidor.` : userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code} -  **${uses} membros**\n`, '')}`, false)
+      .addField('Convites:', `${userInvites.length === 0 ?  userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code} -  **${uses} membros**\n`) : `**${guildMember}** não possui convites no servidor.`}`, false)
       .setFooter(`• Autor: ${author.tag}`, author.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
       .setColor('RANDOM')
 

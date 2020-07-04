@@ -14,7 +14,7 @@ module.exports = class Command {
     try {
       this.run(ctx)
     } catch (err) {
-      channel.send(`Algo deu extremamente errado ao executar esse comando por favor entrem em contato com a equipe de desenvolvimento usando o commando \`suport\`\`\`\`js${err}\`\`\``)
+      channel.send(`Algo deu extremamente errado ao executar esse comando por favor entrem em contato com a equipe de desenvolvimento usando o commando \`suport\`\`\`\`js${err}\`\`\``).catch(_ => null)
     }
   }
 
