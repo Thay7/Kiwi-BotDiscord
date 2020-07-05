@@ -133,7 +133,7 @@ module.exports = class Userinfo extends Command {
         let Uinfos = new MessageEmbed()
           .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
           .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-          .setColor('#8A0829')
+          .setColor('#DAA2CA')
           .addFields([
             {
               name: `<:kyatsu_maleta:729410550441967646>  Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
