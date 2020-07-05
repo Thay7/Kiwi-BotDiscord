@@ -82,7 +82,7 @@ module.exports = class Userinfo extends Command {
     const embed = new MessageEmbed()
       .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('#8A0829')
+      .setColor('#DAA2CA')
       .addFields([
         {
           name: '<:kyatsu_user:729406731809194006> Tag',
