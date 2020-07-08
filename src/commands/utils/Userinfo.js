@@ -82,7 +82,7 @@ module.exports = class Userinfo extends Command {
     const embed = new MessageEmbed()
       .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DDA0D')
+      .setColor('DB7093')
       .addFields([
         {
           name: '<:usuario:730321302120038471> Tag',
@@ -90,22 +90,22 @@ module.exports = class Userinfo extends Command {
           inline: true
         },
         {
-          name: '<:kyatsu_rotulo:729406731628576799> ID',
+          name: '<:id2:730329331808600095> ID',
           value: `\`${user.id}\``,
           inline: true
         },
         {
-          name: '<:lapis:730317308022620200> Apelido',
-          value: `${guildMember.nickname ? guildMember.nickname : 'Sem apelido...👀'}`,
+          name: '<:lapis:730324426457088040> Apelido',
+          value: `${guildMember.nickname ? guildMember.nickname : 'Sem apelido'}`,
           inline: true
         },
         {
-          name: '<:kyatsu_resumo:729410532817371316> Status personalizado',
-          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``,
+          name: '<:nuvem:730330312344731709> Status personalizado',
+          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
           inline: false
         },
         {
-          name: '<:pacman:730317307443675177> Jogando',
+          name: '<:pac:730327714191507478> Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
           inline: false
         },
@@ -115,13 +115,13 @@ module.exports = class Userinfo extends Command {
           inline: true
         },
         {
-          name: '<:entrou:730320059008024668> Entrou no servidor em:',
+          name: '<:entrou2:730326636079349770> Entrou no servidor em:',
           value: moment(member.joinedTimestamp).format('LLL'),
           inline: true
         }
       ])
       .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-      .setTimestamp()
+      
 
 
 
