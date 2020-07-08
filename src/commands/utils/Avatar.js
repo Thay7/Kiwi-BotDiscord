@@ -15,7 +15,9 @@ module.exports = class Avatar extends Command {
 
     const embed = new MessageEmbed()
       .setColor('RANDOM')
-      .setDescription(`Avatar de ${user}`)
+      .setTitle(`Avatar de ${user}`)
+      .setDescription(`Clique aqui para baixar o Avatar`)
+      .seURL(avatarUrl)
       .setImage(avatarUrl)
       .setFooter(`• Autor: ${author.tag}`)
       .setTimestamp()
