@@ -9,17 +9,19 @@ module.exports = class Avatar extends Command {
     this.category = 'utils'
   }
 
-  async run({ channel, mentions, args, author }) {
-    const user = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]) : author
-    const avatarUrl = user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })
+  async run({ channel, mentions, args, author, member }) {
+    const { MessageEmbed } = require('discord.js')
+    const user = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]).catch(_ => author) : author
+    const avatar = user.displayAvatarURL({ dynamic: true, size: 2048 })
+  
 
     const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setDescription(`Avatar de ${user}`)
-      .setImage(avatarUrl)
+
+      .setTitle('<:b_:730250420588642324> Avatar')
+      .setDescription(`<:baixar:730275034878312528> [Baixar](${avatar})`)
+      .setImage(avatar)
+      .setColor('00000')
       .setFooter(`• Autor: ${author.tag}`)
-      .setTimestamp()
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     channel.send(embed)
   }
 }
