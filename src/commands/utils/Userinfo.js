@@ -85,7 +85,7 @@ module.exports = class Userinfo extends Command {
       .setColor('DDA0D')
       .addFields([
         {
-          name: '<:kyatsu_user:729406731809194006> Tag',
+          name: '<:usuario:730321302120038471> Tag',
           value: `\`${user.tag}\``,
           inline: true
         },
@@ -95,7 +95,7 @@ module.exports = class Userinfo extends Command {
           inline: true
         },
         {
-          name: '<:kyatsu_useredit:729406732077367397> Apelido',
+          name: '<:lapis:730317308022620200> Apelido',
           value: `${guildMember.nickname ? guildMember.nickname : 'Sem apelido...👀'}`,
           inline: true
         },
@@ -105,17 +105,17 @@ module.exports = class Userinfo extends Command {
           inline: false
         },
         {
-          name: '<:kyatsu_controle:729406732073435156> Jogando',
+          name: '<:pacman:730317307443675177> Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
           inline: false
         },
         {
-          name: '<:kyatsu_calendario:729406731716919379>  Criou a conta em',
+          name: '<:pc:730319460354883644> Criou a conta em',
           value: moment(user.createdAt).format('LLL'),
           inline: true
         },
         {
-          name: '<:kyatsu_entrar:729406731591090187> Entrou no servidor:',
+          name: '<:entrou:730320059008024668> Entrou no servidor em:',
           value: moment(member.joinedTimestamp).format('LLL'),
           inline: true
         }
