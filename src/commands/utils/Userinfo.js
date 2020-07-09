@@ -133,14 +133,14 @@ module.exports = class Userinfo extends Command {
         let Uinfos = new MessageEmbed()
           .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
           .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-          .setColor('DDA0D')
+          .setColor('DB7093')
           .addFields([
             {
-              name: `<:kyatsu_maleta:729410550441967646>  Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
+              name: `<:pasta:730832578415951892> Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
               value: `${member.roles.cache.size === 1 ? 'Sem cargos' : member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
             },
             {
-              name: '<:kyatsu_configs:729406731767119963> Permissões',
+              name: '<:permissoes:730832578323415126> Permissões',
               value: `${permissions.join(', ')}`
             }
           ])
