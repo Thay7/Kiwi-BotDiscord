@@ -9,10 +9,17 @@ module.exports = class Clear extends Command {
     this.category = 'moderation'
   }
 
-  async run({ msg, args, member }) {
-    if(!member.hasPermission('MANAGE_MESSAGES')) return msg.reply('você não tem permissão para limpar o chat!')
+  async run({ msg, args, member, author, channel }) {
+    const { MessageEmbed } = require('discord.js')
+    
+    const embed = new MessageEmbed()
+      .setDescription('você não tem permissão para limpar o chat!')
+      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+      .setColor('DB7093')
+
+    if(!member.hasPermission('MANAGE_MESSAGES')) return channel.send(embed).then(m => m.delete(7000)).catch(() => {})
     if (!msg.guild.me.hasPermission('MANAGE_MESSAGES')) return msg.reply('eu não tenho permissão para apagar mensagens nesse servidor!')
-    if(!args[0]) return msg.reply('você precisa informar quantas mensagens serão deletadas!')
+    if(!args[0]) return msg.reply('você precisa informar quantas mensangens serão deletadas!')
 
     let quantity = args[0]
 
