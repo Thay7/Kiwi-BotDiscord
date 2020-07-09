@@ -126,8 +126,8 @@ module.exports = class Userinfo extends Command {
 
 
     channel.send(embed).then((c) => {
-      c.react('729406731461066835').then(() => {})
-      let Embed2 = (reaction, user, ) => reaction.emoji.id === '729406731461066835' && user.id === msg.author.id
+      c.react('730326636079349770').then(() => {})
+      let Embed2 = (reaction, user, ) => reaction.emoji.id === '730326636079349770' && user.id === msg.author.id
       let Uinfos = c.createReactionCollector(Embed2, { time: 80000 })
       Uinfos.on('collect', r2 => {
         let Uinfos = new MessageEmbed()
