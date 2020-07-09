@@ -10,7 +10,7 @@ module.exports = class Kyatsu extends Client {
       prefixes: options.prefixes instanceof Array ? options.prefixes : [options.prefixes],
       presence: options.presence
     }
-
+    this.options.disableMentions = 'everyone'
     this.loader = new LoadersManager(this)
     this.commands = new Collection()
   }
