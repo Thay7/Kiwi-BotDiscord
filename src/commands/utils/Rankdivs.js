@@ -21,21 +21,22 @@ module.exports = class Divulgadores extends Command {
       .setAuthor(`Divulgadores | ${guild.name}`, client.user.avatarURL)
       .setDescription('Esse é meu "ranking" e apenas os melhores na divulgação se encontram nele!')
       .setThumbnail(guild.iconURL)
+      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
-    const emojis = ['🏆', '🥈', '🥉', '🏅', '🏅']
+    const emojis = ['<:trofeu:730857908673445958>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>']
 
     let total = 0
     for (const inv of rank) {
       total += inv.uses
       const index = rank.indexOf(inv, 0)
-      embed.addField(`${emojis[index]} **${index + 1}** - ${inv.inviter.username}`, `\`\`\`css\nConvidados: ${inv.uses}\`\`\` `)
+      embed.addField(`${emojis[index]} **${index + 1}** - ${inv.inviter.username}`, `\`\`\`\nConvidados: ${inv.uses}\`\`\` `)
     }
 
     embed
-      .addField('Total/Recrutados', `<a:dc:723878284517048332> ~ ${total}`, true)
-      .addField('Total/Convites', `<a:1598:723878723853746258> ~ ${invites.size}`, true)
+      .addField('Total Convites:', `<:convites:730852750086111312> ${invites.size}`, true)
+      .addField('Total Recrutados:', `<:total:730851292523659295> ${total}`, true)
       .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-      .setColor('RANDOM')
+      .setColor('DB7093')
 
     channel.send(embed)
   }
