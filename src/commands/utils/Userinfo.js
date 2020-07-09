@@ -96,7 +96,7 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: '<:lapis:730324426457088040> Apelido',
-          value: `${guildMember.nickname ? guildMember.nickname : 'Sem apelido'}`,
+          value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
           inline: true
         },
         {
