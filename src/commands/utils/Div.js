@@ -18,13 +18,8 @@ module.exports = class Div extends Command {
 
     const embed = new MessageEmbed()
       .setThumbnail(guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-<<<<<<< HEAD
-      .setTitle('Divulgação <:div:730313770592895066>')
-      .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `Convidou um total de: **${userInvites.reduce((p, v) => v.uses + p, 0)}** `, true)
-=======
       .setAuthor('Kyatsu | Divulgadores')
       .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `Convidou um total de **${userInvites.reduce((p, v) => v.uses + p, 0)}** `, true)
->>>>>>> d91d4845e70d425d290ce551e84abea156192346
       .addField('Convites:', `${userInvites.length === 0 ?  userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code} -  **${uses} membros**\n`) : `**${guildMember}** não possui convites no servidor.`}`, false)
       .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       .setColor('DB7093')
