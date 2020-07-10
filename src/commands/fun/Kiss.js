@@ -17,7 +17,7 @@ module.exports = class Say extends Command {
     if (!user) return msg.reply('você precisa mencionar um usuário!')
 
     const embed = new MessageEmbed()
-      .setColor('RANDOM')
+      .setColor('DB7093')
       .setDescription(`${author} beijou ${user}!`)
       .setImage(img.url)
       .setFooter(`• Autor: ${author.tag}`)
