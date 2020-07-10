@@ -20,8 +20,6 @@ module.exports = class Say extends Command {
       .setColor('DB7093')
       .setDescription(`${author} abraçou ${user}!`)
       .setImage(img.url)
-      .setFooter(`• Autor: ${author.tag}`)
-      .setTimestamp()
       .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
     channel.send(embed)
