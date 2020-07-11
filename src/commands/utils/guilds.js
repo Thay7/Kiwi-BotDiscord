@@ -8,6 +8,7 @@ module.exports = class guilds extends Command {
     this.name = 'guilds'
     this.aliases = ['servers']
     this.category = 'utils'
+    this.hidden = true
   }
 
   async run ({members, client, size, channel}) {
