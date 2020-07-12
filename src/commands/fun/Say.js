@@ -9,7 +9,7 @@ module.exports = class Say extends Command {
   }
 
   run({ args, channel, author }){
-    if(!args[0]) return channel.send(`${author}, você precisa escrever algo antes!`).then(m => m.delete({ timeout: 5000 }))
+    if(!args[0]) return channel.send(`${author}, você precisa me dizer o que falar`).then(m => m.delete({ timeout: 5000 }))
 
     const mensagem = args.join(' ')
 
