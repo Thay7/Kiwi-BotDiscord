@@ -8,8 +8,8 @@ module.exports = class Say extends Command {
     this.category = 'fun'
   }
 
-  run({ args, channel }){
-    if(!args[0]) return channel.send(`${member}, você precisa escrever algo antes!`).then(m => m.delete({ timeout: 5000 }))
+  run({ args, channel, author }){
+    if(!args[0]) return channel.send(`${author}, você precisa escrever algo antes!`).then(m => m.delete({ timeout: 5000 }))
 
     const mensagem = args.join(' ')
 
