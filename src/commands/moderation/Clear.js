@@ -10,11 +10,8 @@ module.exports = class Clear extends Command {
   }
 
   async run({ msg, args, member, author, channel }) {
-    const embed = new MessageEmbed()
-      .setDescription(`${member}, você não tem permissão para limpar o chat!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    if(!member.hasPermission('MANAGE_MESSAGES')) return channel.send(embed).then(m => m.delete({ timeout: 5000 }))
+    
+    if(!member.hasPermission('MANAGE_MESSAGES')) return (`${member}, você não tem permissão para limpar o chat!`).then(m => m.delete({ timeout: 5000 }))
 
     const embed2 = new MessageEmbed()
       .setDescription(`${member}, eu não tenho permissão para apagar mensagens nesse servidor!`)
