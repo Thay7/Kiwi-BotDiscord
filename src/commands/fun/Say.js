@@ -9,7 +9,7 @@ module.exports = class Say extends Command {
   }
 
   run({ args, channel }){
-    if(!args[0]) return channel.send(':x: | Você precisa escrever algo antes!')
+    if(!args[0]) return channel.send('você precisa escrever algo antes!')
 
     const mensagem = args.join(' ')
 
