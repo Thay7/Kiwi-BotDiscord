@@ -11,36 +11,24 @@ module.exports = class Clear extends Command {
 
   async run({ msg, args, member, author, channel }) {
     
-    if(!member.hasPermission('MANAGE_MESSAGES')) return channel.send(`${member}, você não tem permissão para limpar o chat!`).then(m => m.delete({ timeout: 5000 }))
-
-    const embed2 = new MessageEmbed()
-      .setDescription(`${member}, eu não tenho permissão para apagar mensagens nesse servidor!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    if (!msg.guild.me.hasPermission('MANAGE_MESSAGES'))  channel.send(embed2).then(m => m.delete({ timeout: 5000 }))
-
-    const embed3 = new MessageEmbed()
-      .setDescription(`${member}, você precisa informar quantas mensangens serão deletadas!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    if(!args[0]) return channel.send(embed3).then(m => m.delete({ timeout: 5000 }))
-
+    if(!member.hasPermission('MANAGE_MESSAGES')) return channel.send(`${member} você não tem permissão para limpar o chat`).then(m => m.delete({ timeout: 9000 }))
+    msg.delete()
+    
+    if (!msg.guild.me.hasPermission('MANAGE_MESSAGES'))  channel.send(`${member} eu não tenho permissão para apagar mensagens nesse servidor`).then(m => m.delete({ timeout: 9000 }))
+    msg.delete()
+    
+    if(!args[0]) return channel.send(`${member} você precisa informar quantas mensangens serão deletadas`).then(m => m.delete({ timeout: 9000 }))
+    msg.delete()
 
     let quantity = args[0]
 
-    const embed4 = new MessageEmbed()
-      .setDescription(`${member}, a quantidade precisa ser um número!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    if (isNaN(quantity)) return channel.send(embed4).then(m => m.delete({ timeout: 5000 }))
 
-    const embed5 = new MessageEmbed()
-      .setDescription(`${member}, o número precisa ser maior que 0!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    if (quantity < 1) return channel.send(embed5).then(m => m.delete({ timeout: 5000 }))
+    if (isNaN(quantity)) return channel.send(`${member} a quantidade precisa ser um número`).then(m => m.delete({ timeout: 9000 }))
+    msg.delete()
+  
+    if (quantity < 1) return channel.send(`${member} o número precisa ser maior que 0`).then(m => m.delete({ timeout: 9000 }))
     else if (quantity > 1000) quantity = 1000
-
+    msg.delete()
     let total = 0
 
     while (quantity > 1) {
@@ -54,11 +42,8 @@ module.exports = class Clear extends Command {
 
       quantity -= deletedMessages.size
     }
-    const embed6 = new MessageEmbed()
-      .setDescription(`${member}, ${total} mensagens deletadas!`)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      .setColor('DB7093')
-    msg.channel.send(embed6).then(m => m.delete({ timeout: 7000 })).catch(() => {})
+
+    msg.channel.send(`${member} ${total} mensagens deletadas`).then(m => m.delete({ timeout: 12000 })).catch(() => {})
     msg.delete()
   }
 }
