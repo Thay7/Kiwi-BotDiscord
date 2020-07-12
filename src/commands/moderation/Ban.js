@@ -37,8 +37,7 @@ module.exports = class Ban extends Command {
       .addField('<:lapis:730324426457088040> Motivo:', `\`\`\`${reason}\`\`\``)
       .setColor('DB7093')
 
-    channel.send(embed)
-
+    channel.send(embed).then(m => m.delete({ timeout: 10000 })).catch(() => {})
     toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('não foi possivel banir esse usuario!') })
   }
 }
