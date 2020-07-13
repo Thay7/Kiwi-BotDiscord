@@ -14,7 +14,8 @@ module.exports = class Say extends Command {
 
     const mensagem = args.join(' ')
 
-    channel.send(mensagem)
     msg.delete()
+    channel.send(mensagem)
+    
   }
 }
