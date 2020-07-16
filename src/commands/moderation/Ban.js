@@ -10,7 +10,6 @@ module.exports = class Ban extends Command {
   }
 
   run({ channel, msg, args, member, me, mentions, guild }) {
-
     msg.delete()
 
     if (!args[0]) return msg.reply('mencione um usuário!').then(m => m.delete({ timeout: 4000 }))
