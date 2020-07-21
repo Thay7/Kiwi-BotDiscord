@@ -9,15 +9,16 @@ module.exports = class Ajuda extends Command {
     this.category = 'utils'
   }
 
-  async run({ channel, mentions, args, author, member }) {
+  async run({ channel, client, mentions, args, author, member }) {
     const { MessageEmbed } = require('discord.js')
 
     const embed = new MessageEmbed()
 
-      .setTitle('<:ajuda:734901641408675853> Ajuda')
+      .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
+      .setTitle('<:ajuda:734901641408675853> Ajuda | Kyatsu')
       .setDescription('Aqui estão algumas de minhas funções: \n *reaja de acordo com o desejado\n\n Moderação <:ADM:734903913899229215>\n\nDiversão <:diverso:734904814911225906>\n\nUltilidades <:ULTILS:734905522721128449>')
       .setColor('DB7093')
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+      
     channel.send(embed).then((c) => {
       c.react('734903913899229215').then(() => {
         c.react('734904814911225906').then(() => {
@@ -33,6 +34,9 @@ module.exports = class Ajuda extends Command {
       let outset = c.createReactionCollector(outsetFilter)
       let information = c.createReactionCollector(informationFilter)
       let interaction = c.createReactionCollector(interactionFilter)
+
+      
     }
+
     )}
 }

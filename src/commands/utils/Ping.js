@@ -14,8 +14,8 @@ module.exports = class Ping extends Command {
     const embed = new MessageEmbed()
       .setTitle('Pong! <:ping:730845575959937025>')
       .setDescription(`Meu ping atual é: \`${this.client.ws.ping}ms\``)
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
       .setColor('DB7093')
+      .setFooter(`• Autor: ${author.tag}`)
     channel.send(embed)
   }
 }
