@@ -9,6 +9,7 @@ module.exports = class extends Event {
   }
 
   run(oldM, newM) {
+    if(oldM.content === newM.content) return
     this.emit('message', newM)
   }
 }
