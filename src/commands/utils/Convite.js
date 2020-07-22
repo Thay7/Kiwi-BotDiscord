@@ -16,7 +16,6 @@ module.exports = class Convite extends Command {
       .setTitle('Convite <:ideia:730297791871582299>')
       .setDescription(`Clique [aqui](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=2147483639&scope=bot) para me adicionar em seu servidor!`)
       .setColor('DB7093')
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
     msg.channel.send(embed)
   }}

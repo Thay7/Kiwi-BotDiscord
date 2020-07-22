@@ -21,7 +21,7 @@ module.exports = class Avatar extends Command {
       .setDescription(`<:baixar:730322557755981824> [Baixar](${avatar})`)
       .setImage(avatar)
       .setColor('DB7093')
-      .setFooter(`• Autor: ${author.tag}`)
+      .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     channel.send(embed)
   }
 }

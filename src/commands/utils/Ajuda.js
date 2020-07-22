@@ -15,28 +15,11 @@ module.exports = class Ajuda extends Command {
     const embed = new MessageEmbed()
 
       .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-      .setTitle('<:ajuda:734901641408675853> Ajuda | Kyatsu')
-      .setDescription('Aqui estão algumas de minhas funções: \n *reaja de acordo com o desejado\n\n Moderação <:ADM:734903913899229215>\n\nDiversão <:diverso:734904814911225906>\n\nUltilidades <:ULTILS:734905522721128449>')
+      .setTitle('<:ajuda:734901641408675853> Ajuda')
+      .setDescription('**Olá, eu sou a Kyatsu!** <:kyatsu:735553174341157025> \n\n<:lupa:735555823547187290> \`Fui desenvolvida com o intuito de te auxiliar na moderação de seu servidor. Aqui estão algumas informações importante sobre mim:\` \n\n<:prefixo:735303901825204286> **Prefixo:**\`k!\` \n\n<:comandos:735306352296984586> **Comandos:** \`k!comandos\` \n\n<:convites:730852750086111312> **Convite:** \`k!convite\`')
       .setColor('DB7093')
+      .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
       
-    channel.send(embed).then((c) => {
-      c.react('734903913899229215').then(() => {
-        c.react('734904814911225906').then(() => {
-          c.react('734905522721128449').then(() => {
-          })
-        })
-      })
-
-      let outsetFilter = (reaction, user) => reaction.emoji.id === '732837629900488795' && user.id === message.author.id
-      let informationFilter = (reaction, user) => reaction.emoji.id === '732837629615407118' && user.id === message.author.id
-      let interactionFilter = (reaction, user) => reaction.emoji.id === '732836340277706782' && user.id === message.author.id
-
-      let outset = c.createReactionCollector(outsetFilter)
-      let information = c.createReactionCollector(informationFilter)
-      let interaction = c.createReactionCollector(interactionFilter)
-
-      
-    }
-
-    )}
+    channel.send(embed)
+  }
 }

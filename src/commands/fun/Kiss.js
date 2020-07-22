@@ -18,7 +18,7 @@ module.exports = class Say extends Command {
 
     const embed = new MessageEmbed()
       .setColor('DB7093')
-      .setDescription(`${author} beijou ${user}!`)
+      .setDescription(`${author} beijou ${user}`)
       .setImage(img.url)
       .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
