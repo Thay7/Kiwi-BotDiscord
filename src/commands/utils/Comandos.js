@@ -10,8 +10,8 @@ module.exports = class Comandos extends Command {
   }
 
   async run({ msg }) {
-
-    return msg.reply('Comando em construção, aguarde só mais um pouco')
+    msg.delete()
+    return msg.reply('Comando em construção, aguarde só mais um pouco').then(m => m.delete({ timeout: 9000 }))
  
   }
 }
