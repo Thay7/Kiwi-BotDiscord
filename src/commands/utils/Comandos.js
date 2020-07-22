@@ -9,7 +9,7 @@ module.exports = class Comandos extends Command {
     this.category = 'utils'
   }
 
-  async run({ channel, client, mentions, args, author, member }) {
+  async run({ msg }) {
 
     return msg.reply('Comando em construção, aguarde só mais um pouco')
  
