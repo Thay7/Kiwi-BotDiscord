@@ -13,7 +13,8 @@
     "discord.js": "^12.2.0",
     "moment": "^2.27.0",
     "nekos.life": "^2.0.7",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "superagent": "3.8.3"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
