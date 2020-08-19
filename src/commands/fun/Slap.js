@@ -2,7 +2,7 @@ const Command = require('../../lib/strucutures/Command')
 const { MessageEmbed } = require('discord.js')
 const neko = new (require('nekos.life'))
 
-module.exports = class Say extends Command {
+module.exports = class Slap extends Command {
   constructor(client){
     super(client)
     this.name = 'slap'
