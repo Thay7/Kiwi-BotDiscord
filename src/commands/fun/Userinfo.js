@@ -144,7 +144,55 @@ module.exports = class Userinfo extends Command {
               value: `${permissions.join(', ')}`
             }
           ])
-        c.edit(Uinfos)
       })
     })
-  }}
+  }}  
+channel.send(Embed2).then((c) => {
+  c.react('730326636079349770').then(() => {})
+  let Embed3 = (reaction, user, ) => reaction.emoji.id === '730326636079349770' && user.id === msg.author.id
+  let Uinfos = c.createReactionCollector(Embed3, { time: 80000 })
+  Uinfos.on('collect', r2 => {
+    let Uinfos = new MessageEmbed()
+      .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
+      .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+      .setColor('DB7093')
+      .addFields([
+        {
+          name: '<:usuario:730321302120038471> Tag',
+          value: `\`${user.tag}\``,
+          inline: true
+        },
+        {
+          name: '<:id2:730329331808600095> ID',
+          value: `\`${user.id}\``,
+          inline: true
+        },
+        {
+          name: '<:lapis:730324426457088040> Apelido',
+          value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
+          inline: true
+        },
+        {
+          name: '<:nuvem:730330312344731709> Status personalizado',
+          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
+          inline: false
+        },
+        {
+          name: '<:pac:730327714191507478> Jogando',
+          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
+          inline: false
+        },
+        {
+          name: '<:pc:730319460354883644> Criou a conta em',
+          value: moment(user.createdAt).format('LLL'),
+          inline: true
+        },
+        {
+          name: '<:entrou2:730326636079349770> Entrou no servidor em:',
+          value: moment(member.joinedTimestamp).format('LLL'),
+          inline: true
+        }
+      ])
+      .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
+    c.edit(Uinfos)}
+  )}) 
