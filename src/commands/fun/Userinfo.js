@@ -79,6 +79,7 @@ module.exports = class Userinfo extends Command {
       uinfo = msg.mentions.users.first() || client.users.cache.get(args[0]) || msg.author
     }
 
+    let page = 1
     const embed = new MessageEmbed()
       .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
@@ -122,77 +123,41 @@ module.exports = class Userinfo extends Command {
       ])
       .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       
-
-
-
-    channel.send(embed).then((c) => {
-      c.react('730326636079349770').then(() => {})
-      let Embed2 = (reaction, user, ) => reaction.emoji.id === '730326636079349770' && user.id === msg.author.id
-      let Uinfos = c.createReactionCollector(Embed2, { time: 80000 })
-      Uinfos.on('collect', r2 => {
-        let Uinfos = new MessageEmbed()
-          .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
-          .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-          .setColor('DB7093')
-          .addFields([
-            {
-              name: `<:pasta:730832578415951892> Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
-              value: `${member.roles.cache.size === 1 ? 'Sem cargos' : member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
-            },
-            {
-              name: '<:permissoes:730832578323415126> Permissões',
-              value: `${permissions.join(', ')}`
-            }
-          ])
-      })
-    })
-  }}  
-channel.send(Embed2).then((c) => {
-  c.react('730326636079349770').then(() => {})
-  let Embed3 = (reaction, user, ) => reaction.emoji.id === '730326636079349770' && user.id === msg.author.id
-  let Uinfos = c.createReactionCollector(Embed3, { time: 80000 })
-  Uinfos.on('collect', r2 => {
-    let Uinfos = new MessageEmbed()
+    const embed2 = new MessageEmbed()
       .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
       .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
       .setColor('DB7093')
       .addFields([
         {
-          name: '<:usuario:730321302120038471> Tag',
-          value: `\`${user.tag}\``,
-          inline: true
+          name: `<:pasta:730832578415951892> Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
+          value: `${member.roles.cache.size === 1 ? 'Sem cargos' : member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
         },
         {
-          name: '<:id2:730329331808600095> ID',
-          value: `\`${user.id}\``,
-          inline: true
-        },
-        {
-          name: '<:lapis:730324426457088040> Apelido',
-          value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
-          inline: true
-        },
-        {
-          name: '<:nuvem:730330312344731709> Status personalizado',
-          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
-          inline: false
-        },
-        {
-          name: '<:pac:730327714191507478> Jogando',
-          value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
-          inline: false
-        },
-        {
-          name: '<:pc:730319460354883644> Criou a conta em',
-          value: moment(user.createdAt).format('LLL'),
-          inline: true
-        },
-        {
-          name: '<:entrou2:730326636079349770> Entrou no servidor em:',
-          value: moment(member.joinedTimestamp).format('LLL'),
-          inline: true
+          name: '<:permissoes:730832578323415126> Permissões',
+          value: `${permissions.join(', ')}`
         }
       ])
-      .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-    c.edit(Uinfos)}
-  )}) 
+    message.channel.send(embed).then(msg => {
+      msg.react(':arrow_backward:').then(r => {
+        msg.react(':arrow_forward:')
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === ':arrow_backward:' && user.id === message.author.id;
+        const fowardsFilter = (reaction, user) => reaction.emoji.name === ':arrow_forward:' && user.id === message.author.id;
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 })
+        const forwards = msg.createReactionCollector(fowardsFilter, { time: 60000 })
+
+        backwards.on('collect', r => {
+          if (page === 1) return
+          page--
+          msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+          if (page === 2) return
+          page++
+          msg.edit(embed2)
+        })
+      })
+    })
+  }
+}
