@@ -11,7 +11,7 @@ module.exports = class Userinfo extends Command {
   }
 
 
-  async run({ channel, args, mentions, member, msg, client, cache }) {
+  async run({ channel, args, mentions, member, msg, client, cache, message }) {
 
     let permissions = []
     let uuser = args[0] ? msg.mentions.members.first() || msg.guild.member(args[0]) : msg.member
@@ -137,25 +137,25 @@ module.exports = class Userinfo extends Command {
           value: `${permissions.join(', ')}`
         }
       ])
-    message.channel.send(embed).then(msg => {
-      msg.react(':arrow_backward:').then(r => {
-        msg.react(':arrow_forward:')
+    msg.channel.send(embed).then(msg2 => {
+      msg2.react('746405909689008158').then(r => {
+        msg2.react('746405942278619167')
 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === ':arrow_backward:' && user.id === message.author.id;
-        const fowardsFilter = (reaction, user) => reaction.emoji.name === ':arrow_forward:' && user.id === message.author.id;
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
+        const fowardsFilter = (reaction, user) => reaction.emoji.name === 'seta_direita' && user.id === msg.author.id
 
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 })
-        const forwards = msg.createReactionCollector(fowardsFilter, { time: 60000 })
+        const backwards = msg2.createReactionCollector(backwardsFilter, { time: 60000 })
+        const forwards = msg2.createReactionCollector(fowardsFilter, { time: 60000 })
 
         backwards.on('collect', r => {
           if (page === 1) return
           page--
-          msg.edit(embed)
+          msg2.edit(embed)
         })
         forwards.on('collect', r => {
           if (page === 2) return
           page++
-          msg.edit(embed2)
+          msg2.edit(embed2)
         })
       })
     })
