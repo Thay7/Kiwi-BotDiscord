@@ -18,10 +18,10 @@ module.exports = class Avatar extends Command {
     const embed = new MessageEmbed()
 
       .setTitle('<:insta:730321815213310023> Avatar')
-      .setDescription(`Avatar de ${user} /n<:baixar:730322557755981824> [Baixar](${avatar})`)
+      .setDescription(`Avatar de ${user} \u2800 <:baixar:730322557755981824> [Baixar](${avatar})`)
       .setImage(avatar)
       .setColor('DB7093')
-      .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+      .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }
 }
