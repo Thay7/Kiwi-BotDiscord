@@ -15,7 +15,7 @@ module.exports = class Ping extends Command {
       .setTitle('Pong! <:ping:730845575959937025>')
       .setDescription(`Meu ping atual é: \`${this.client.ws.ping}ms\``)
       .setColor('DB7093')
-      .setFooter(`• Autor: ${author.tag}`)
+      .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }
 }
