@@ -1,6 +1,8 @@
 const { Client, Collection } = require('discord.js')
 const LoadersManager = require('./lib/LoadersManager')
 
+
+
 module.exports = class Kyatsu extends Client {
   constructor(options = {}) {
     super(options)

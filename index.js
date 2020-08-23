@@ -1,5 +1,6 @@
 const Nezuko = require('./src/Kyatsu')
 
+
 console.log('Config vars')
 for(const env of Object.entries(process.env)){
   console.log(env[0] + '=' + env[1])

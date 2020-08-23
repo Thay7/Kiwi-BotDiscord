@@ -1,14 +1,16 @@
 const Event = require('../lib/strucutures/Event')
+const { Client } = require('discord.js')
 const queue = new Map()
 
 module.exports = class extends Event {
-  constructor() {
+  constructor(client) {
     super({
       name: 'message'
     })
   }
 
   run(msg) {
+
     if (msg.channel.type === 'dm' || msg.author.bot) return
 
     const prefix = this.config.prefixes.find(prefix => msg.content.toLowerCase().startsWith(prefix))
@@ -25,8 +27,11 @@ module.exports = class extends Event {
       cmd = this.commands.find(c => c.name === cmdQuery || c.aliases.includes(cmdQuery))
 
     if (cmd) return cmd.init(ctx(this, msg, args))
+
   }
 }
+
+
 
 function ctx(client, msg, args) {
   return {
