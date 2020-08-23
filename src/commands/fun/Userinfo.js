@@ -129,8 +129,8 @@ module.exports = class Userinfo extends Command {
       .setColor('DB7093')
       .addFields([
         {
-          name: `<:pasta:730832578415951892> Cargos (${member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
-          value: `${member.roles.cache.size === 1 ? 'Sem cargos' : member.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
+          name: `<:pasta:730832578415951892> Cargos (${uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
+          value: `${uuser.roles.cache.size === 1 ? 'Sem cargos' : uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
         },
         {
           name: '<:permissoes:730832578323415126> Permissões',
