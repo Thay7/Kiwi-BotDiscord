@@ -15,6 +15,6 @@ module.exports = class extends Event {
       .addField('Membos:', `\n${guild.memberCount}`)
       .addField('Dono', `\n${guild.owner}`)
       .setColor('DB7093')
-    this.channels.cache.get('731316119633395742').send(embed)
+    this.channels.cache.get('747915482488766515').send(embed)
   }
 }
