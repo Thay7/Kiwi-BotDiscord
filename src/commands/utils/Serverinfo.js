@@ -11,7 +11,7 @@ module.exports = class Serverinfo extends Command {
     this.category = 'utils'
   }
 
-  async run({ guild, members, author, channel, msg}) {
+  async run({ guild, member, author, channel, msg}) {
     const embed = new MessageEmbed()
       .setTitle('<:ajuda:734901641408675853> Informações do Servidor')
       .setColor('DB7093')
@@ -39,7 +39,7 @@ module.exports = class Serverinfo extends Command {
         },
         {
           name: 'Entrei em:',
-          value: moment(guild.joinedTimestamp).format('LLL'),
+          value: moment(member.joinedAt).format('LLL'),
           inline: true
         },
         {
