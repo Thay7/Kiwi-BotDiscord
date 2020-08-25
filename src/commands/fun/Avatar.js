@@ -17,10 +17,10 @@ module.exports = class Avatar extends Command {
 
     const embed = new MessageEmbed()
 
-      .setTitle('<:insta:730321815213310023> Avatar')
-      .setDescription(`<:user2:747690594981380107> ${user} \n<:baixar:730322557755981824> [Baixar](${avatar})`)
+      .setTitle('<:avatar_kiwi:747947038158618765>Avatar')
+      .setDescription(`<:user_kiwi:747947037760421900> ${user} \n<:baixar_kiwi:747947038255087657> [Baixar](${avatar})`)
       .setImage(avatar)
-      .setColor('DB7093')
+      .setColor('A21ED9')
       .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }
