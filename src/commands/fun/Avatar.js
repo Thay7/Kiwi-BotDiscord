@@ -18,7 +18,7 @@ module.exports = class Avatar extends Command {
     const embed = new MessageEmbed()
 
       .setTitle('<:insta:730321815213310023> Avatar')
-      .setDescription(`<:user:747681561092161539> ${user} \n<:baixar:730322557755981824> [Baixar](${avatar})`)
+      .setDescription(`<:user2:747690594981380107> ${user} \n<:baixar:730322557755981824> [Baixar](${avatar})`)
       .setImage(avatar)
       .setColor('DB7093')
       .setFooter(`Autor: ${author.tag}`)
