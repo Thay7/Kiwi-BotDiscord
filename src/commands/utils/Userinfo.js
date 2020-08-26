@@ -92,7 +92,7 @@ module.exports = class Userinfo extends Command {
           inline: true
         },
         {
-          name: '<:info__kiwi:748131836496052266> ID',
+          name: '<:info__kiwi:748131836496052266> IDa',
           value: `\`${user.id}\``,
           inline: true
         },
