@@ -18,9 +18,9 @@ module.exports = class Avatar extends Command {
     const embed = new MessageEmbed()
 
       .setTitle('<:avatar_kiwi:748214550947561542> Avatar')
-      .setDescription(`<:user_kiwi:748131837414735982> ${user} \<:salvar_kiwi:748214550578331690> [Baixar](${avatar})`)
+      .setDescription(`<:user_kiwi:748131837414735982> ${user} \n<:salvar_kiwi:748214550578331690> [Baixar](${avatar})`)
       .setImage(avatar)
-      .setColor('A21ED9')
+      .setColor('DB7093')
       .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }
