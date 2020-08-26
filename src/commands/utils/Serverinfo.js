@@ -13,37 +13,37 @@ module.exports = class Serverinfo extends Command {
 
   async run({ guild, member, author, channel, msg}) {
     const embed = new MessageEmbed()
-      .setTitle('<:ajuda:734901641408675853> Informações do Servidor')
+      .setTitle('<:info_kiwi:748230688481869905> Informações do Servidor')
       .setColor('DB7093')
       .setThumbnail(guild.iconURL)
       .addFields([
         {
-          name: 'Nome',
+          name: '<:server_kiwi:748230688238600243> Nome',
           value: `\`${guild.name}\``,
           inline: true
         },
         {
-          name: 'ID',
+          name: '<:info__kiwi:748131836496052266> ID',
           value: `\`${guild.id}\``,
           inline: true
         },
         {
-          name: 'Membros:',
+          name: '<:members_kiwi:748230688200982614> Membros:',
           value: `\`${guild.memberCount}\``,
           inline: true
         },
         {
-          name: 'Criado em:',
+          name: '<:conta__kiwi:748131836609429525> Criado em:',
           value: moment(guild.createdAt).format('LLL'),
           inline: true
         },
         {
-          name: 'Entrei em:',
+          name: '<:entrou_kiwi:748131836785328211> Entrei em:',
           value: moment(member.joinedAt).format('LLL'),
           inline: true
         },
         {
-          name: 'Dono:',
+          name: '<:chave_kiwi:748232441440763904> Dono:',
           value: `${guild.owner}`,
           inline: true
         },
