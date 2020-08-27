@@ -34,7 +34,7 @@ module.exports = class Divulgadores extends Command {
       .setThumbnail(guild.iconURL)
       .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
-    const emojis = ['<:trofeu:730857908673445958>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>', '<:medalha:730857908316798977>']
+    const emojis = ['<:trofeu_kiwi:748547923373195336>', '<:medalha_kiwi:748547923901546586>', '<:medalha_kiwi:748547923901546586>', '<:medalha_kiwi:748547923901546586>', '<:medalha_kiwi:748547923901546586>']
 
     let total = 0
     for (const inv of rank) {
@@ -44,8 +44,8 @@ module.exports = class Divulgadores extends Command {
     }
 
     embed3
-      .addField('Total Convites:', `<:convites:730852750086111312> ${invites.size}`, true)
-      .addField('Total Recrutados:', `<:total:730851292523659295> ${total}`, true)
+      .addField('Total Convites:', `<:convites_kiwi:748547923620659350> ${invites.size}`, true)
+      .addField('Total Recrutados:', `<:mundo_kiwi:748547923922518036> ${total}`, true)
       .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
       .setColor('DB7093')
 
