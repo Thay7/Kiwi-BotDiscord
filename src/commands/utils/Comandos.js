@@ -22,7 +22,7 @@ module.exports = class Comandos extends Command {
         
     const ADM = new MessageEmbed()
       .setTitle('<:ADM:734903913899229215> Moderação')
-      .setDescription('\`Ban/Unban\` - Bane/Desbane um usuário  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados \n\n\`Rankdivs\` - Mostra o ranking de divulgções do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um usuário \n\n\`Topico\` - Define a mensagem do topico de um canal')
+      .setDescription('\`Ban/Unban\` - Bane/Desbane um membro  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados e os convites do recrutador \n\n\`Rankdivs\` - Mostra o ranking de divulgações do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um membro \n\n\`Tópico\` - Define a mensagem do topico de um canal')
       .setColor('DB7093')
       .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
         
