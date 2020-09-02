@@ -48,7 +48,6 @@ module.exports = class Serverinfo extends Command {
           inline: true
         },
       ])
-      .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }                                                         
 }
