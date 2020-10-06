@@ -21,23 +21,19 @@ module.exports = class Ban extends Command {
 
     const toBan = mentions.members.first() || guild.members.cache.get(args[0])
 
-    if (!toBan) return msg.reply('não foi possível encontrar esse usuário, tente novamente!').then(m => m.delete({ timeout: 4000 }))
+    if (!toBan) return msg.reply('usuário não encontrado').then(m => m.delete({ timeout: 4000 }))
     if (toBan.id === member.id) return msg.reply('você não pode banir você mesmo bobinho...').then(m => m.delete({ timeout: 4000 }))
     if (!toBan.bannable) return msg.reply('não posso banir essa pessoa!').then(m => m.delete({ timeout: 4000 }))
 
     const embed = new MessageEmbed()
-      .setThumbnail(toBan.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-      .setAuthor(`• ${member.displayName}`, member.user.displayAvatarURL({ dynamic: true }))
-      .setTitle('Ação | Ban')
-      .addField('<:staff:730868696372740166> Staff:', member, true)
-      .addField('<:id:730868137360359514> ID Staff:', member.id, true)
-      .addField('\u2800', '\u2800')
-      .addField('<:usuario:730867252601290784> Banido:', toBan, true)
-      .addField('<:id:730868137360359514> ID banido:', toBan.id, true)
-      .addField('<:lapis:730324426457088040> Motivo:', `\`\`\`${reason}\`\`\``)
+      .setTitle('Ban')
+      .addField('<:members_kiwi:748230688200982614> Staff:', member, true)
+      .addField('<:user_kiwi:748131837414735982> Banido:', toBan, true)
+      .addField('<:info__kiwi:748131836496052266> ID banido:', toBan.id, true)
+      .addField('<:apelido_kiwi:748131837431513088> Motivo:', `\`\`\`${reason}\`\`\``)
       .setColor('DB7093')
 
-    channel.send(embed).then(m => m.delete({ timeout: 5000 })).catch(() => {})
+    channel.send(embed).then(m => m.delete({ timeout: 20000 })).catch(() => {})
     toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('não foi possivel banir esse usuario!') })
   }
 }
