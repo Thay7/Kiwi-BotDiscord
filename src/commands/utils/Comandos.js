@@ -16,7 +16,7 @@ module.exports = class Comandos extends Command {
     const COMANDS = new MessageEmbed()
       .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
       .setTitle('<:comandos_kiwi:748568323721003010> Comandos')
-      .setDescription('\`Aqui está a lista dos meus comandos.\` \n\`Reaja no emoji de acordo com o desejado!\` \n\n<:ADM:734903913899229215> **Moderação** \n\n<:diverso:734904814911225906> **Diversão** \n\n<:ULTILS:734905522721128449> **Ultilidades**')
+      .setDescription('\`Aqui está a lista dos meus comandos.\` \n\`Reaja no emoji de acordo com o desejado!\` \n\n<:config_kiwi:748131837003431936> **Moderação** \n\n<:game_kiwi:748134067878232074> **Diversão** \n\n<:lupa_kiwi:748567313074225282> **Ultilidades**')
       .setColor('DB7093')
       .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
         
