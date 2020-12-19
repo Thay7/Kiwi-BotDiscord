@@ -16,7 +16,7 @@ module.exports = class Comandos extends Command {
     const COMANDS = new MessageEmbed()
       .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
       .setTitle('<:comandos_kiwi:748568323721003010> Comandos')
-      .setDescription('\`Aqui está a lista dos meus comandos.\` \n\`Reaja no emoji de acordo com o desejado!\` \n\n<:config_kiwi:748131837003431936> **Moderação** \n\n<:game_kiwi:748134067878232074> **Diversão** \n\n<:lupa_kiwi:748567313074225282> **Ultilidades**')
+      .setDescription('\`Reaja no emoji de acordo com o desejado!\` \n\n<:config_kiwi:748131837003431936> **Moderação** \n\n<:game_kiwi:748134067878232074> **Diversão** \n\n<:lupa_kiwi:748567313074225282> **Utilidades**')
       .setColor('DB7093')
       .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
         
@@ -33,17 +33,17 @@ module.exports = class Comandos extends Command {
       .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
     const ULTILS = new MessageEmbed()
-      .setTitle('<:mundo_kiwi:748547923922518036> Ultilidades')
+      .setTitle('<:lupa_kiwi:748567313074225282> Utilidades')
       .setDescription('\n\n\`Userinfo\` - Mostra as informações do usuário \n\n\`Serverinfo\` - Mostra as informações do servidor \n\n\`Ajuda\` - Mostra informações do bot - \n\n\`Comandos\` - Mostra os comandos do bot \n\n\`Convite\` - Mostra o convite do bot \n\n\`Ping\` - Mostra o ping do bot ')
       .setColor('DB7093')  
       .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     msg.channel.send(COMANDS).then(msg2 => {
-      msg2.react('748131837414473778').then(r => {
-        msg2.react('748131837003431936')
+      msg2.react('748131837003431936').then(r => {
         msg2.react('748134067878232074')
         msg2.react('748567313074225282')
+        msg2.react('748568323721003010')
 
-        const comandsFilter = (reaction, user) => reaction.emoji.name === 'next_kiwi' && user.id === msg.author.id
+        const comandsFilter = (reaction, user) => reaction.emoji.name === 'comandos_kiwi' && user.id === msg.author.id
         const modFilter = (reaction, user) => reaction.emoji.name === 'config_kiwi' && user.id === msg.author.id
         const divFilter = (reaction, user) => reaction.emoji.name === 'game_kiwi' && user.id === msg.author.id
         const ultilsFilter = (reaction, user) => reaction.emoji.name === 'lupa_kiwi' && user.id === msg.author.id
@@ -62,12 +62,12 @@ module.exports = class Comandos extends Command {
         mod.on('collect', r => {
           if (page === 2) return
           page++
-          msg2.edit(ADM)
+          msg2.edit(MOD)
         })
         div.on('collect', r => {
           if (page === 3) return
           page++
-          msg2.edit(FUN)
+          msg2.edit(DIV)
         })
         ultils.on('collect', r => {
           if (page === 4) return
