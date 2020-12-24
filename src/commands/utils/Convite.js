@@ -13,7 +13,7 @@ module.exports = class Convite extends Command {
     const embed = new MessageEmbed()
 
       .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-      .setTitle('Convite <:ideia:730297791871582299>')
+      .setTitle('Convite <:ideia_kiwi:791524743986544671>')
       .setDescription(`Clique [aqui](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=2147483639&scope=bot) para me adicionar em seu servidor!`)
       .setColor('DB7093')
 
