@@ -5,6 +5,7 @@ module.exports = class Div extends Command {
   constructor(client) {
     super(client)
     this.name = 'div'
+    this.aliases = ['divulgador']
     this.category = 'utils'
   }
 
