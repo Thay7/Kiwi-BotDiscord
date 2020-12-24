@@ -13,10 +13,10 @@ module.exports = class Tguilds extends Command {
     this.hidden = true
   }
 
-  async run ({channel, client,}) {
+  async run ({channel, client, size, cache}) {
   
-    const servidores = client.guilds.cache.map (g => `${`Estou em um total de \`${client.guilds.size.cache}\` servidores!`}`) 
-    channel.send(servidores)
+    const servidores = client.guilds.cache.map (g => `${`Estou em um total de \`${g.client.guilds.size.cache}\` servidores!`}`) 
+    channel.send(`${servidores.join('\n')}`)
     
   } 
 }

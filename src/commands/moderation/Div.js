@@ -23,7 +23,7 @@ module.exports = class Div extends Command {
     const userInvites = invites.filter(i => i.inviter === guildMember)
 
     const embed2 = new MessageEmbed()
-      .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `Convidou um total de: **${userInvites.reduce((p, v) => v.uses + p, 0)}** membros `, true)
+      .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `**Convidou:** ${userInvites.reduce((p, v) => v.uses + p, 0)}`, true)
       .addField('Convites:', `${ userInvites.size > 0 ?  userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code}\n`, '') : `**${guildMember}** não possui convites no servidor.`}`, false)
       .setColor('DB7093')
     channel.send(embed2)
