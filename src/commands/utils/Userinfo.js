@@ -51,19 +51,19 @@ module.exports = class Userinfo extends Command {
 
     let status = {
       online: {
-        msg: '�',
+        msg: '',
         color: '#43b581'
       },
       idle: {
-        msg: '<:idle_status:729102214316163124>',
+        msg: '',
         color: '#faa61a'
       },
       dnd: {
-        msg: '<:dnd_status:729102214177488916>',
+        msg: '',
         color: '#f04747'
       },
       offline: {
-        msg: '<:offline_status:729102213993070593>',
+        msg: '',
         color: '#747f8d'
       },
     }
