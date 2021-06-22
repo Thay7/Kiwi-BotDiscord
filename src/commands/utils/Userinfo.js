@@ -87,37 +87,37 @@ module.exports = class Userinfo extends Command {
       .setColor('DB7093')
       .addFields([
         {
-          name: '<:user_kiwi:748131837414735982> Tag',
+          name: 'Tag',
           value: `\`${user.tag}\``,
           inline: true
         },
         {
-          name: '<:info__kiwi:748131836496052266> ID',
+          name: 'ID',
           value: `\`${user.id}\``,
           inline: true
         },
         {
-          name: '<:apelido_kiwi:748131837431513088> Apelido',
+          name: 'Apelido',
           value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
           inline: true
         },
         {
-          name: '<:status_kiwi:748131836936454144> Status personalizado',
+          name: 'Status personalizado',
           value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
           inline: false
         },
         {
-          name: '<:game_kiwi:748134067878232074> Jogando',
+          name: 'Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
           inline: false
         },
         {
-          name: '<:conta__kiwi:748131836609429525> Criou a conta em',
+          name: 'Criou a conta em',
           value: moment(user.createdAt).format('LLL'),
           inline: true
         },
         {
-          name: '<:entrou_kiwi:748131836785328211> Entrou no servidor em:',
+          name: 'Entrou no servidor em:',
           value: moment(member.joinedTimestamp).format('LLL'),
           inline: true
         }
@@ -130,11 +130,11 @@ module.exports = class Userinfo extends Command {
       .setColor('DB7093')
       .addFields([
         {
-          name: `<:cargos__kiwi:748131836437331989> Cargos (${uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
+          name: `Cargos (${uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
           value: `${uuser.roles.cache.size === 1 ? 'Sem cargos' : uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
         },
         {
-          name: '<:config_kiwi:748131837003431936> Permissões',
+          name: 'Permissões',
           value: `${permissions.join(', ')}`
         }
       ])
