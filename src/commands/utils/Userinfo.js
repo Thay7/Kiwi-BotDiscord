@@ -51,7 +51,7 @@ module.exports = class Userinfo extends Command {
 
     let status = {
       online: {
-        msg: '🔴',
+        msg: '�',
         color: '#43b581'
       },
       idle: {
