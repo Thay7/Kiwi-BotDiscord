@@ -34,7 +34,7 @@ module.exports = class Divulgadores extends Command {
       .setThumbnail(guild.iconURL)
       .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
 
-    const emojis = ['<:trofeu:857241614854389760>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>']
+    const emojis = ['<:trofeu:857243095964188682>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>', '<:medalha:857243483278409758>']
 
     let total = 0
     for (const inv of rank) {
