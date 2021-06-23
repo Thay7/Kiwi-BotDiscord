@@ -12,18 +12,18 @@ module.exports = class Ban extends Command {
   run({ channel, msg, args, member, me, mentions, guild }) {
     msg.delete()
 
-    if (!member.hasPermission('BAN_MEMBERS')) return msg.reply('você não tem permissão!').then(m => m.delete({ timeout: 4000 }))
-    if (!me.hasPermission('BAN_MEMBERS')) return msg.reply('eu não tenho permissão!').then(m => m.delete({ timeout: 4000 }))
+    if (!member.hasPermission('BAN_MEMBERS')) return msg.reply('você não tem permissão!').then(m => m.delete({ timeout: 10000 }))
+    if (!me.hasPermission('BAN_MEMBERS')) return msg.reply('eu não tenho permissão!').then(m => m.delete({ timeout: 10000 }))
 
-    if (!args[0]) return msg.reply('mencione um usuário!').then(m => m.delete({ timeout: 4000 }))
+    if (!args[0]) return msg.reply('mencione um usuário!').then(m => m.delete({ timeout: 10000 }))
     const reason = args.slice(1).join(' ') || 'Não informado'
 
 
     const toBan = mentions.members.first() || guild.members.cache.get(args[0])
 
-    if (!toBan) return msg.reply('usuário não encontrado').then(m => m.delete({ timeout: 4000 }))
-    if (toBan.id === member.id) return msg.reply('você não pode banir você mesmo bobinho...').then(m => m.delete({ timeout: 4000 }))
-    if (!toBan.bannable) return msg.reply('não posso banir essa pessoa!').then(m => m.delete({ timeout: 4000 }))
+    if (!toBan) return msg.reply('usuário não encontrado').then(m => m.delete({ timeout: 10000 }))
+    if (toBan.id === member.id) return msg.reply('você não pode banir você mesmo bobinho...').then(m => m.delete({ timeout: 10000 }))
+    if (!toBan.bannable) return msg.reply('não posso banir essa pessoa!').then(m => m.delete({ timeout: 10000 }))
 
     const embed = new MessageEmbed()
       .setTitle('Ban')
