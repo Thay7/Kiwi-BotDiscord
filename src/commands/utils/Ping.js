@@ -12,7 +12,7 @@ module.exports = class Ping extends Command {
     const { MessageEmbed } = require('discord.js')
 
     const embed = new MessageEmbed()
-      .setTitle('Pong! <:ping_kiwi:748236895083036813>')
+      .setTitle('Pong! <:ping:857297306713718835>')
       .setDescription(`Meu ping atual é: \`${this.client.ws.ping}ms\``)
       .setColor('DB7093')
     channel.send(embed)
