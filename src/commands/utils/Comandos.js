@@ -34,15 +34,15 @@ module.exports = class Comandos extends Command {
       .setDescription('\n\n\`Userinfo\` - Mostra as informações do usuário \n\n\`Serverinfo\` - Mostra as informações do servidor \n\n\`Ajuda\` - Mostra informações do bot - \n\n\`Comandos\` - Mostra os comandos do bot \n\n\`Convite\` - Mostra o convite do bot \n\n\`Ping\` - Mostra o ping do bot ')
       .setColor('DB7093')  
     msg.channel.send(COMANDS).then(msg2 => {
-      msg2.react('748131837003431936').then(r => {
-        msg2.react('748134067878232074')
-        msg2.react('748567313074225282')
+      msg2.react('857299526724223026').then(r => {
+        msg2.react('857303905095254068')
+        msg2.react('857303949521584228')
         msg2.react('748568323721003010')
 
-        const comandsFilter = (reaction, user) => reaction.emoji.name === 'comandos_kiwi' && user.id === msg.author.id
-        const modFilter = (reaction, user) => reaction.emoji.name === 'config_kiwi' && user.id === msg.author.id
-        const divFilter = (reaction, user) => reaction.emoji.name === 'game_kiwi' && user.id === msg.author.id
-        const ultilsFilter = (reaction, user) => reaction.emoji.name === 'lupa_kiwi' && user.id === msg.author.id
+        const comandsFilter = (reaction, user) => reaction.emoji.name === 'comandos' && user.id === msg.author.id
+        const modFilter = (reaction, user) => reaction.emoji.name === 'ADM' && user.id === msg.author.id
+        const divFilter = (reaction, user) => reaction.emoji.name === 'pac' && user.id === msg.author.id
+        const ultilsFilter = (reaction, user) => reaction.emoji.name === 'ULTILS' && user.id === msg.author.id
 
         const comands = msg2.createReactionCollector(comandsFilter, { time: 100000 })
         const mod = msg2.createReactionCollector(modFilter, { time: 100000 })
