@@ -39,10 +39,10 @@ module.exports = class Comandos extends Command {
         msg2.react('857303949521584228')
         msg2.react('858032380395388998')
 
-        const comandsFilter = (reaction, user) => reaction.emoji.name === 'ADM' && user.id === msg.author.id
+        const comandsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
         const modFilter = (reaction, user) => reaction.emoji.name === 'pac' && user.id === msg.author.id
         const divFilter = (reaction, user) => reaction.emoji.name === 'ULTILS' && user.id === msg.author.id
-        const ultilsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
+        const ultilsFilter = (reaction, user) => reaction.emoji.name === 'ADM' && user.id === msg.author.id
 
         const comands = msg2.createReactionCollector(comandsFilter, { time: 100000 })
         const mod = msg2.createReactionCollector(modFilter, { time: 100000 })
