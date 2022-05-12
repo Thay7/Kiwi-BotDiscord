@@ -19,12 +19,14 @@ module.exports = class Comandos extends Command {
       .setDescription('\`Reaja no emoji de acordo com o desejado!\` \n\n <:ADM:857299526724223026> **Moderação** \n\n <:pac:857303905095254068> **Diversão** \n\n <:ULTILS:857303949521584228> **Utilidades**')
       .setColor('DB7093')
         
-    const MOD = new MessageEmbed()
+
+    const ADM = new MessageEmbed()
       .setTitle('<:ADM:857299526724223026> Moderação')
-      .setDescription('\`Ban/Unban\` - Bane/Desbane um membro  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados e os convites do recrutador \n\n\`Rankdivs\` - Mostra o ranking de divulgações do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um membro \n\n\`Tópico\` - Define a mensagem do topico de um canal')
+      .setDescription('\`Ban/Unban\` - Bane/Desbane um usuário  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados \n\n\`Rankdivs\` - Mostra o ranking de divulgções do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um usuário \n\n\`Topico\` - Define a mensagem do topico de um canal')
       .setColor('DB7093')
+      .setFooter(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
         
-    const DIV = new MessageEmbed()
+    const FUN = new MessageEmbed()
       .setTitle('<:pac:857303905095254068> Diversão')
       .setDescription('\`Avatar\` - Mostra o avatar do usuário \n\n\`Say\` - O bot replica sua mensagem \n\n\`Hug\` - Dá um abraço no usuário mencionado \n\n\`Kiss\` - Dá um beijo no usuário mencionado \n\n\`Slap\` - Dá um tapa no usuário mencionado')
       .setColor('DB7093')
