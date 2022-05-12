@@ -7,6 +7,7 @@ module.exports = class Userinfo extends Command {
   constructor(client) {
     super(client)
     this.name = 'userinfo'
+    this.aliases = ['uinfo']
     this.category = 'utils'
   }
 
@@ -50,19 +51,19 @@ module.exports = class Userinfo extends Command {
 
     let status = {
       online: {
-        msg: '<:online_status:729102214202785843>',
+        msg: '',
         color: '#43b581'
       },
       idle: {
-        msg: '<:idle_status:729102214316163124>',
+        msg: '',
         color: '#faa61a'
       },
       dnd: {
-        msg: '<:dnd_status:729102214177488916>',
+        msg: '',
         color: '#f04747'
       },
       offline: {
-        msg: '<:offline_status:729102213993070593>',
+        msg: '',
         color: '#747f8d'
       },
     }
@@ -86,37 +87,37 @@ module.exports = class Userinfo extends Command {
       .setColor('DB7093')
       .addFields([
         {
-          name: '<:usuario:730321302120038471> Tag',
+          name: 'Tag',
           value: `\`${user.tag}\``,
           inline: true
         },
         {
-          name: '<:id2:730329331808600095> ID',
+          name: 'ID',
           value: `\`${user.id}\``,
           inline: true
         },
         {
-          name: '<:lapis:730324426457088040> Apelido',
+          name: 'Apelido',
           value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
           inline: true
         },
         {
-          name: '<:nuvem:730330312344731709> Status personalizado',
+          name: 'Status personalizado',
           value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
           inline: false
         },
         {
-          name: '<:pac:730327714191507478> Jogando',
+          name: 'Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
           inline: false
         },
         {
-          name: '<:pc:730319460354883644> Criou a conta em',
+          name: 'Criou a conta em',
           value: moment(user.createdAt).format('LLL'),
           inline: true
         },
         {
-          name: '<:entrou2:730326636079349770> Entrou no servidor em:',
+          name: 'Entrou no servidor em:',
           value: moment(member.joinedTimestamp).format('LLL'),
           inline: true
         }
@@ -129,20 +130,20 @@ module.exports = class Userinfo extends Command {
       .setColor('DB7093')
       .addFields([
         {
-          name: `<:pasta:730832578415951892> Cargos (${uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
+          name: `Cargos (${uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => roles.name).length})`,
           value: `${uuser.roles.cache.size === 1 ? 'Sem cargos' : uuser.roles.cache.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(', ')}`
         },
         {
-          name: '<:permissoes:730832578323415126> Permissões',
+          name: 'Permissões',
           value: `${permissions.join(', ')}`
         }
       ])
     msg.channel.send(embed).then(msg2 => {
-      msg2.react('746405909689008158').then(r => {
-        msg2.react('746405942278619167')
+      msg2.react('748131837376725003').then(r => {
+        msg2.react('748131837414473778')
 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
-        const fowardsFilter = (reaction, user) => reaction.emoji.name === 'seta_direita' && user.id === msg.author.id
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === 'back_kiwi' && user.id === msg.author.id
+        const fowardsFilter = (reaction, user) => reaction.emoji.name === 'next_kiwi' && user.id === msg.author.id
 
         const backwards = msg2.createReactionCollector(backwardsFilter, { time: 60000 })
         const forwards = msg2.createReactionCollector(fowardsFilter, { time: 60000 })

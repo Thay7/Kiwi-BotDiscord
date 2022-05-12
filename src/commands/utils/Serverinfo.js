@@ -13,7 +13,7 @@ module.exports = class Serverinfo extends Command {
 
   async run({ guild, member, author, channel, msg}) {
     const embed = new MessageEmbed()
-      .setTitle('<:ajuda:734901641408675853> Informações do Servidor')
+      .setTitle('Informações do Servidor')
       .setColor('DB7093')
       .setThumbnail(guild.iconURL)
       .addFields([
@@ -48,7 +48,6 @@ module.exports = class Serverinfo extends Command {
           inline: true
         },
       ])
-      .setFooter(`Autor: ${author.tag}`)
     channel.send(embed)
   }                                                         
 }

@@ -5,6 +5,7 @@ module.exports = class Div extends Command {
   constructor(client) {
     super(client)
     this.name = 'div'
+    this.aliases = ['divulgador']
     this.category = 'utils'
   }
 
@@ -23,13 +24,9 @@ module.exports = class Div extends Command {
     const userInvites = invites.filter(i => i.inviter === guildMember)
 
     const embed2 = new MessageEmbed()
-      .setThumbnail(guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
-      .setAuthor('Kyatsu | Divulgadores')
-      .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `Convidou um total de **${userInvites.reduce((p, v) => v.uses + p, 0)}** `, true)
-      .addField('Convites:', `${userInvites.length === 0 ?  userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code} -  **${uses} membros**\n`) : `**${guildMember}** não possui convites no servidor.`}`, false)
-      .setFooter(msg.guild.name, msg.guild.iconURL({ format: 'png', size: 2048, dynamic: true }))
+      .addField(`Divulgador: ${guildMember.user ? guildMember.user.tag : guildMember.tag }`, `**Convidou:** ${userInvites.reduce((p, v) => v.uses + p, 0)}`, true)
+      .addField('Convites:', `${ userInvites.size > 0 ?  userInvites.reduce((a, { code, uses }) => a + `https://discord.gg/${code}\n`, '') : `**${guildMember}** não possui convites no servidor.`}`, false)
       .setColor('DB7093')
-      .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     channel.send(embed2)
   }
 }
