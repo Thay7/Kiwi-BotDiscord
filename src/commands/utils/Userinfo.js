@@ -139,7 +139,7 @@ module.exports = class Userinfo extends Command {
         }
       ])
     msg.channel.send(embed).then(msg2 => {
-      msg2.react('748131837376725003').then(r => {
+      msg2.react('858032380395388998').then(r => {
         msg2.react('748131837414473778')
 
         const backwardsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
