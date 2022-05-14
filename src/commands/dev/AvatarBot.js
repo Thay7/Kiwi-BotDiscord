@@ -8,9 +8,9 @@ module.exports = class Say extends Command {
     this.category = 'dev'
     this.hidden = true
   }
-
+z
   run({ client, args, author, channel }) {
-    if(!['292718549628092447', '712134111292293210'].includes(message.author.id))
+    if(!['712134111292293210'].includes(message.author.id))
       return
     if (!args[0])
       return channel.send(`${author} insira um link!`)
