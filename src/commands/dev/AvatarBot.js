@@ -10,7 +10,7 @@ module.exports = class Say extends Command {
   }
 
   run({ client, args, author, channel }) {
-    if(!['726509292659671070'].includes(message.author.id))
+    if(!['292718549628092447', '712134111292293210'].includes(message.author.id))
       return
     if (!args[0])
       return channel.send(`${author} insira um link!`)
