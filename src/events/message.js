@@ -15,16 +15,16 @@ module.exports = class extends Event {
 
     const prefix = this.config.prefixes.find(prefix => msg.content.toLowerCase().startsWith(prefix))
 
-    if (!msg.content.toLowerCase().startsWith(prefix)) return
+    const hasPrefix = msg.content.toLowerCase().startsWith(prefix)
 
     const args = msg.content
-      .trim().slice(prefix.length)
+      .trim().slice(hasPrefix ? prefix.length : 0)
       .split(/ /g).filter(Boolean)
 
     if (!args[0]) return
 
     const cmdQuery = args.shift().toLowerCase(),
-      cmd = this.commands.find(c => c.name === cmdQuery || c.aliases.includes(cmdQuery))
+      cmd = this.commands.find(c => (c.name === cmdQuery || c.aliases.includes(cmdQuery)) && c.hasPrefix === hasPrefix)
 
     if (cmd) return cmd.init(ctx(this, msg, args))
 

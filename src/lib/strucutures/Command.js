@@ -6,6 +6,7 @@ module.exports = class Command {
     this.description = null
     this.aliases = []
     this.hidden = false
+    this.needPrefix = true
   }
 
   init(ctx) {
