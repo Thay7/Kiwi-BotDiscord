@@ -10,6 +10,6 @@ module.exports = class Say extends Command {
   }
    
   run({ args, channel, author, msg}){
-    if(message.content === "Farda") return channel.send(`Kalebe`)
+    if(message.content === "Farda") return channel.send('Kalebe')
   }
 }
