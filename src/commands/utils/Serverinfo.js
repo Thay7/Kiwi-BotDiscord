@@ -13,7 +13,7 @@ module.exports = class Serverinfo extends Command {
 
   async run({ guild, member, author, channel, msg}) {
     const embed = new MessageEmbed()
-      .setTitle('Informações do Servidor')
+      .setTitle('<:id2:984978063752298546> Informações do Servidor')
       .setColor('DB7093')
       .setThumbnail(guild.iconURL)
       .addFields([
