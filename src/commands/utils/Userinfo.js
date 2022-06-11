@@ -97,7 +97,7 @@ module.exports = class Userinfo extends Command {
                             {
                                 name: 'Apelido',
                                 value: `${guildMember.nickname ? guildMember.nickname : '``Sem apelido``'}`,
-          inline: true
+                                inline: true
         },
         {
           name: 'Status personalizado',
