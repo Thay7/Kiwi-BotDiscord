@@ -51,19 +51,19 @@ module.exports = class Userinfo extends Command {
 
                 let status = {
                     online: {
-                        msg: '<:online:984910003381076098>',
+                        msg: '',
                         color: '#43b581'
                     },
                     idle: {
-                        msg: '984910066790576148',
+                        msg: '',
                         color: '#faa61a'
                     },
                     dnd: {
-                        msg: '984908823854723155',
+                        msg: '',
                         color: '#f04747'
                     },
                     offline: {
-                        msg: '984910103247478814',
+                        msg: '',
                         color: '#747f8d'
                     },
                 }
@@ -81,7 +81,7 @@ module.exports = class Userinfo extends Command {
 
                 let page = 1
                 const embed = new MessageEmbed()
-                    .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
+                    .setTitle(`${status[uinfo.client.user.presence.status].msg} ${uinfo.username}`)
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
                     .setColor('DB7093')
                     .addFields([{
