@@ -72,7 +72,7 @@ module.exports = class Userinfo extends Command {
 
                 if (!user && !guildMember) return channel.send('Membro não encontrado')
 
-                const customStatus = user.presence.activities.name.filter(a => a.type === 'CUSTOM_STATUS')
+                const customStatus = user.presence.activities.filter(a => a.type === 'CUSTOM_STATUS')
                 const games = guildMember.presence.activities.filter(a => a.type === 'PLAYING').map(a => a.name)
                 let uinfo = msg.mentions.users.first()
                 if (uinfo) {} else {
