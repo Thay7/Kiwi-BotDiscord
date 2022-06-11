@@ -137,11 +137,11 @@ module.exports = class Userinfo extends Command {
         }
       ])
     msg.channel.send(embed).then(msg2 => {
-      msg2.react('748131837376725003').then(r => {
-        msg2.react('748131837414473778')
+      msg2.react('858032380395388998').then(r => {
+        msg2.react('984978077203431544')
 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === 'back_kiwi' && user.id === msg.author.id
-        const fowardsFilter = (reaction, user) => reaction.emoji.name === 'next_kiwi' && user.id === msg.author.id
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === 'seta_esquerda' && user.id === msg.author.id
+        const fowardsFilter = (reaction, user) => reaction.emoji.name === 'seta_direita' && user.id === msg.author.id
 
         const backwards = msg2.createReactionCollector(backwardsFilter, { time: 60000 })
         const forwards = msg2.createReactionCollector(fowardsFilter, { time: 60000 })
