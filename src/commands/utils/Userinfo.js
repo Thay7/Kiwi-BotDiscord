@@ -81,7 +81,7 @@ module.exports = class Userinfo extends Command {
 
                 let page = 1
                 const embed = new MessageEmbed()
-                    .setTitle(`${status[uinfo.client.user.presence.status].msg} ${uinfo.username}`)
+                    .setTitle(`${status[uinfo.presence.status].msg} ${uinfo.username}`)
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
                     .setColor('DB7093')
                     .addFields([{
