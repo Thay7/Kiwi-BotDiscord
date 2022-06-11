@@ -116,7 +116,7 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: 'Entrou no servidor em:',
-          value: moment(member.joinedAt).format('LLL'),
+          value: moment(guildMember.joinedTimestamp).format('LLL'),
           inline: true
         }
       ])
