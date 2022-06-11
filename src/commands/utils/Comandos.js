@@ -15,7 +15,7 @@ module.exports = class Comandos extends Command {
         let page = 1
         const COMANDS = new MessageEmbed()
             .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
-            .setTitle('<:comandos:857252199046316042> Comandos teste')
+            .setTitle('<:comandos:857252199046316042> Comandos')
             .setDescription('\`Reaja no emoji de acordo com o desejado!\` \n\n <:ADM:857299526724223026> **Moderação** \n\n <:pac:857303905095254068> **Diversão** \n\n <:ULTILS:857303949521584228> **Utilidades**')
             .setColor('DB7093')
 
