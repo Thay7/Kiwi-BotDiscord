@@ -1,3 +1,3 @@
 # Kiwi
 
-BOT DO DISCORD
+Página Website: https://kiwibot.netlify.app/
