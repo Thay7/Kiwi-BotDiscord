@@ -11,8 +11,9 @@ module.exports = class Owner extends Command {
     }
 
     run({ args, channel, author, msg}){
-       
-
+        const user = args[0] ? mentions.users.first() || await this.client.users.fetch(args[0]).catch(_ => author) : author
+        const avatar = user.displayAvatarURL({ dynamic: true, size: 2048 })
+        
         const embed = new MessageEmbed()
         .setDescription(`<:insta:857243048799109120> **Avatar de** ${user} \n<:download:984978058064846879> Clique [aqui](${avatar}) para baixar`)
         .setImage(avatar)
