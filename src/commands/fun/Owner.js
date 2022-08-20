@@ -13,9 +13,7 @@ module.exports = class Owner extends Command {
 
     const ownerBot = client.application.owner.map (g => `${`Minha criadora é a \`${g.name}`}`)
     
-    msg = ownerBot
-
-    channel.send(msg)
+    if (!user) return msg.reply(ownerBot)
     
   }
 }
