@@ -1,20 +1,23 @@
 const Command = require('../../lib/strucutures/Command')
-const { MessageEmbed } = require('discord.js')
-const neko = new (require('nekos.life'))
+const { Message } = require('discord.js')
 
 module.exports = class Owner extends Command {
-    constructor(client) {
-        super(client)
-        this.name = 'owner'
-        this.aliases = ['dono']
-        this.category = 'fun'
-    }
+  constructor(client){
+    super(client)
+    this.name = 'owner'
+    this.aliases = ['dono']
+    this.category = 'fun'
+  }
+   
+  run({ args, channel, author, msg}){
+    if(!args[0]) return channel.send(`${author}, você precisa me dizer o que falar`).then(m => m.delete({ timeout: 5000 }))
 
-    async run({ msg }) {
+    const ownerBot = client.application.owner.map (g => `${`Minha criadora é a \`${g.name}`}`)
+    
+    msg = ownerBot
 
-        if (msg.content === "owner") {
-            msg.reply("thay");
-
-        }
-    }
+    channel.send(msg)
+    
+  }
 }
+  
