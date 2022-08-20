@@ -1,3 +1,3 @@
 # Kiwi
 
-Página Website: https://kiwibot.netlify.app/
+Landing Page: https://kiwibot.netlify.app/
