@@ -9,7 +9,7 @@ module.exports = class Owner extends Command {
     this.category = 'fun'
   }
    
-  async run({ args, channel, author, msg, client, application, owner}){
+  async run({ user, msg, client}){
 
     const ownerBot = client.application.owner.map (g => `${`Minha criadora é a \`${g.name}`}`)
     
