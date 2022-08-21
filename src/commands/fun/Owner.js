@@ -11,7 +11,7 @@ module.exports = class Owner extends Command {
 
   async run({ msg, client }) {
 
-    const ownerBot = client.guilds.cache.find(user => user.id == '712134111292293210')
+    const ownerBot = client.guilds.cache.get(user => user.id == '712134111292293210')
     
     if (ownerBot) {
 
