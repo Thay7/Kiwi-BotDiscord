@@ -9,7 +9,7 @@ module.exports = class Owner extends Command {
     this.category = 'fun'
   }
 
-  async run({ msg, client, user, guild }) {
+  async run({ msg, client, user}) {
 
     let guild = client.guilds.get('857242928366878731'),
     USER_ID = '712134111292293210'
