@@ -30,12 +30,12 @@ module.exports = class Unban extends Command {
       msg.guild.members.unban(bUser.user)
 
       const reason = args.slice(1).join(' ') || 'Não informado'
-      
+
       const embed = new MessageEmbed()
         .setTitle('Desban')
         .addField('<:staff:984978078914715689> Staff:', member, true)
         .addField('<:usuario:984978084665126972> Desbanido:', bUser, true)
-        .addField('<:id2:984978063752298546> ID desbanido:', userID, true)
+        .addField('<:id2:984978063752298546> ID desbanido:', bUser.id, true)
         .addField('<:lapis:984978066306658355> Motivo:', `\`\`\`${reason}\`\`\``)
         .setColor('DB7093')
       channel.send(embed)
