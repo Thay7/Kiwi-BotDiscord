@@ -32,8 +32,8 @@ module.exports = class Ban extends Command {
       .addField('<:info__kiwi:748131836496052266> ID banido:', toBan.id, true)
       .addField('<:apelido_kiwi:748131837431513088> Motivo:', `\`\`\`${reason}\`\`\``)
       .setColor('DB7093')
-
-    channel.send(embed).then(m => m.delete({ timeout: 20000 })).catch(() => {})
+    channel.send(embed).catch(() => {})
+    
     toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('não foi possivel banir esse usuario!') })
   }
 }
