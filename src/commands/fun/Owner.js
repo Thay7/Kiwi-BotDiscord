@@ -11,13 +11,13 @@ module.exports = class Owner extends Command {
 
   async run({ msg, client, user }) {
 
-    const ownerBot = client.users.cache.find(user => user.id == '712134111292293210')
-    const server = client.guilds.cache.get(' ')
+    let guild = client.guilds.get(''),
+    USER_ID = '712134111292293210'
 
-    if (server.members.cache.find('712134111292293210')) {
-      return msg.reply(`a minha criadora é a ${ownerBot}!`)
-    } else {
-      return msg.reply(`a minha criadora é a Thay#8579!`)
+    if (guild.member.fetch(USER_ID)) {
+      console.log(`a minha criadora é a ${USER_ID}!`)
+    }  else {
+      console.log(`a minha criadora é a Thay#8579!`)
     }
 
   }
