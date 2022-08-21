@@ -11,9 +11,9 @@ module.exports = class Owner extends Command {
    
   async run({ user, msg, client}){
 
-    const ownerBot = client.application.owner.map (g => `${`Minha criadora é a \`${g.name}`}`)
-    
-    if (!user) return msg.reply(ownerBot)
+    const ownerBot = `A minha criadora é a ${712134111292293210}`
+
+    return msg.reply(ownerBot)
     
   }
 }
