@@ -9,11 +9,11 @@ module.exports = class Owner extends Command {
     this.category = 'fun'
   }
    
-  async run({msg}){
+  async run({msg, client, user}){
 
-    const user = client.users.cache.find(user => user.id == '712134111292293210')
+    const thay = client.users.cache.find(user => user.id == '712134111292293210')
 
-    const ownerBot = (`a minha criadora é a ${user}`)
+    const ownerBot = (`a minha criadora é a ${thay}`)
 
     return msg.reply(ownerBot)
     
