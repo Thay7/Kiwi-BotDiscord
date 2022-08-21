@@ -18,8 +18,8 @@ module.exports = class Owner extends Command {
 
     } else {
 
-      return msg.reply(`a minha criadora é a Thay#8579!`)
-      
+      console.log(`a minha criadora é a Thay#8579!`)
+
     }
 
 
