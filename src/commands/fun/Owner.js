@@ -11,7 +11,7 @@ module.exports = class Owner extends Command {
 
   async run({ msg, client, user, guild }) {
 
-    let guild = client.guilds.get(guild.id),
+    let guild = client.guilds.get('857242928366878731'),
       USER_ID = '712134111292293210'
 
       const ownerBot = USER_ID
