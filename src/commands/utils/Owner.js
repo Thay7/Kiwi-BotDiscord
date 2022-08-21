@@ -6,7 +6,7 @@ module.exports = class Owner extends Command {
     super(client)
     this.name = 'owner'
     this.aliases = ['dono']
-    this.category = 'fun'
+    this.category = 'utils'
   }
 
   async run({ msg, client, user }) {
