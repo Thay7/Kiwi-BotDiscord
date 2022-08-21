@@ -2,21 +2,23 @@ const Command = require('../../lib/strucutures/Command')
 const { Message, ClientApplication } = require('discord.js')
 
 module.exports = class Owner extends Command {
-  constructor(client){
+  constructor(client) {
     super(client)
     this.name = 'owner'
     this.aliases = ['dono']
     this.category = 'fun'
   }
-   
-  async run({msg, client}){
 
-    const findUser = client.users.cache.find(user => user.id == '712134111292293210')
+  async run({ msg, client, user }) {
 
-    const ownerBot = (`a minha criadora é a ${findUser}!`)
+    if (client.users.cache.find(user => user.id == '712134111292293210')) {
+
+      const ownerBot = (`a minha criadora é a ${user}!`)
+    } else {
+      msg.reply(`a minha criadora é a Thay#8579!`)
+    }
 
     return msg.reply(ownerBot)
-    
+
   }
 }
-  
