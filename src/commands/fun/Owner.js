@@ -1,5 +1,5 @@
 const Command = require('../../lib/strucutures/Command')
-const { Message } = require('discord.js')
+const { Message, ClientApplication } = require('discord.js')
 
 module.exports = class Owner extends Command {
   constructor(client){
@@ -11,7 +11,7 @@ module.exports = class Owner extends Command {
    
   async run({ user, msg, client}){
 
-    const ownerBot = `A minha criadora é a ${712134111292293210}`
+    const ownerBot = `a minha criadora é a ${ClientApplication.name}`
 
     return msg.reply(ownerBot)
     
