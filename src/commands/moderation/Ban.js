@@ -27,13 +27,13 @@ module.exports = class Ban extends Command {
 
     const embed = new MessageEmbed()
       .setTitle('Ban')
-      .addField('<:members_kiwi:748230688200982614> Staff:', member, true)
-      .addField('<:user_kiwi:748131837414735982> Banido:', toBan, true)
-      .addField('<:info__kiwi:748131836496052266> ID banido:', toBan.id, true)
-      .addField('<:apelido_kiwi:748131837431513088> Motivo:', `\`\`\`${reason}\`\`\``)
+      .addField('<:staff:984978078914715689> Staff:', member, true)
+      .addField('<:usuario:984978084665126972> Banido:', toBan, true)
+      .addField('<:id2:984978063752298546> ID banido:', toBan.id, true)
+      .addField('<:lapis:984978066306658355> Motivo:', `\`\`\`${reason}\`\`\``)
       .setColor('DB7093')
     channel.send(embed).catch(() => {})
-    
+
     toBan.ban(args.slice(1).join(' ')).catch(err => { if (err) return channel.send('não foi possivel banir esse usuario!') })
   }
 }
