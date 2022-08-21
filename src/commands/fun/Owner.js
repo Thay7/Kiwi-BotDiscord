@@ -10,10 +10,10 @@ module.exports = class Owner extends Command {
   }
 
   async run({ msg, client, user }) {
+    const ownerBot = (`a minha criadora é a ${user}!`)
 
     if (client.users.cache.find(user => user.id == '712134111292293210')) {
 
-      const ownerBot = (`a minha criadora é a ${user}!`)
     } else {
       msg.reply(`a minha criadora é a Thay#8579!`)
     }
