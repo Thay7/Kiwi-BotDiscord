@@ -11,7 +11,7 @@ module.exports = class Owner extends Command {
    
   async run({ user, msg, client}){
 
-    const ownerBot = `a minha criadora é a ${ClientApplication.name}`
+    const ownerBot = `a minha criadora é a ${712134111292293210}`
 
     return msg.reply(ownerBot)
     
