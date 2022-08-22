@@ -30,12 +30,10 @@ module.exports = class Unban extends Command {
       let bUser = bans.find(b => b.user.id === userID)
       if (!bUser) return
       msg.guild.members.unban(bUser.user)
-      let userTag = message.member.user.tag
 
       const embed = new MessageEmbed()
         .setTitle('Desban')
         .addField('<:staff:984978078914715689> Staff:', member, true)
-        .addField('<:usuario:984978084665126972> Desbanido:', userTag, true)
         .addField('<:id2:984978063752298546> ID desbanido:', userID, true)
         .addField('<:lapis:984978066306658355> Motivo:', `\`\`\`${reason}\`\`\``)
         .setColor('DB7093')
