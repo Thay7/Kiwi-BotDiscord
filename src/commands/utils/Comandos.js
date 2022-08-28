@@ -22,7 +22,7 @@ module.exports = class Comandos extends Command {
 
         const ADM = new MessageEmbed()
             .setTitle('<:ADM:857299526724223026> Moderação')
-            .setDescription('\`Ban/Unban\` - Bane/Desbane um usuário  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados \n\n\`Rankdivs\` - Mostra o ranking de divulgções do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um usuário \n\n\`Topico\` - Define a mensagem do topico de um canal')
+            .setDescription('\`Ban/Unban\` - Bane/Desbane um usuário  \n\n\`Clear\` - Apaga uma quantidade específica de mensagens de um chat \n\n\`Div\` - Mostra quantos membros foram recrutados \n\n\`Rankdivs\` - Mostra o ranking de divulgações do servidor \n\n\`Mute/Unmute\` - Muta/Desmuta um usuário \n\n\`Topico\` - Define a mensagem do topico de um canal')
             .setColor('DB7093')
 
         const FUN = new MessageEmbed()
@@ -32,7 +32,7 @@ module.exports = class Comandos extends Command {
 
         const ULTILS = new MessageEmbed()
             .setTitle('<:ULTILS:857303949521584228> Utilidades')
-            .setDescription('\n\n\`Userinfo\` - Mostra as informações do usuário \n\n\`Serverinfo\` - Mostra as informações do servidor \n\n\`Ajuda\` - Mostra informações do bot \n\n\`Comandos\` - Mostra os comandos do bot \n\n\`Convite\` - Mostra o convite do bot \n\n\`Ping\` - Mostra o ping do bot ')
+            .setDescription('\n\n\`Userinfo\` - Mostra as informações do usuário \n\n\`Serverinfo\` - Mostra as informações do servidor \n\n\`Ajuda\` - Mostra informações do bot \n\n\`Comandos\` - Mostra os comandos do bot \n\n\`Convite\` - Mostra o convite do bot \n\n\`Ping\` - Mostra o ping do bot \n\n\`Web\` - Te da o link para ir até a minha Landing Page')
             .setColor('DB7093')
         msg.channel.send(COMANDS).then(msg2 => {
             msg2.react('857299526724223026').then(r => {
