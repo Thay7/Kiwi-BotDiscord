@@ -11,7 +11,6 @@ const bot = new Nezuko({
   prefixes: process.env.PREFIXES.split(','),
   owners: process.env.OWNERS.split(','),
   presence: JSON.parse(process.env.PRESENCE) || null,
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits]
 })
 
 bot.launch()
