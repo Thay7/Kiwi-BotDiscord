@@ -1,6 +1,6 @@
 const Command = require('../../lib/strucutures/Command')
 
-module.exports = class Tópico extends Command {
+module.exports = class Topico extends Command {
   constructor(client) {
     super(client)
     this.name = 'tópico'

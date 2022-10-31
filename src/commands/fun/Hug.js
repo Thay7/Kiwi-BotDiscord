@@ -21,7 +21,6 @@ module.exports = class Hug extends Command {
       .setDescription(`${author} abraçou ${user}`)
       .setImage(img.url)
       .setAuthor(author.tag, author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-
     channel.send(embed)
   }
 }

@@ -9,10 +9,8 @@ module.exports = class Unban extends Command {
     this.category = 'moderation'
   }
 
-
   run({ channel, msg, args, member, user, message}) {
     msg.delete()
-
 
     if (!msg.member.hasPermission('BAN_MEMBERS')) {
       return msg.channel.send(`**${msg.author.username}**, você não tem permissão`)
