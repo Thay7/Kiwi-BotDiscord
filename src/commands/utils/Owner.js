@@ -13,13 +13,12 @@ module.exports = class Owner extends Command {
 
     const ownerBot = client.users.cache.find(user => user.id == '712134111292293210')
 
-    if (client.guild.user.exists) {
+    if (client.guild.member('712134111292293210').exists) {
       return msg.reply(`a minha criadora é a ${ownerBot}!`)
 
     } else {
-      return msg.reply(`a minha criadora é a Thay!`)
+      return msg.reply(`a minha criadora é a Thay#8579!`)
 
     }
   }
 }
-
