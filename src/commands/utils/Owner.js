@@ -13,6 +13,8 @@ module.exports = class Owner extends Command {
 
     const ownerBot = client.users.cache.find(user => user.id == '712134111292293210')
 
-    return msg.reply(`a minha criadora é a ${ownerBot}!`)
+
+    return ownerBot
+
   }
 }
