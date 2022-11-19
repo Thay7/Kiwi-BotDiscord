@@ -18,3 +18,4 @@ module.exports = class Convite extends Command {
       .setColor('DB7093')
     msg.channel.send(embed)
   }}
+  

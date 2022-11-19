@@ -9,7 +9,7 @@ module.exports = class Ajuda extends Command {
     this.category = 'utils'
   }
 
-  async run({ channel, client, mentions, args, author, member }) {
+  async run({ channel, client}) {
 
     const embed = new MessageEmbed()
       .setThumbnail(client.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
