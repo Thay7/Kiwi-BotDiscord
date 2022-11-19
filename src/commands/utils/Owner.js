@@ -9,16 +9,15 @@ module.exports = class Owner extends Command {
     this.category = 'utils'
   }
 
-  async run({ msg, client, user, guild }) {
+  async run({ msg, client, user }) {
 
     const ownerBot = client.users.cache.find(user => user.id == '712134111292293210')
 
-    const server = client.guilds.cache.find(guild => guild.id)
-
-    if (server.users.cache.find(user => user.id == '712134111292293210')) {
+    if (!!ownerBot) {
       return msg.reply(`a minha criadora é a ${ownerBot}!`)
-
+      
     } else {
+
       return msg.reply(`a minha criadora é a Thay#8579!`)
 
     }
