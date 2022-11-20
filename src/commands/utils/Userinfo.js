@@ -101,7 +101,7 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: 'Status personalizado',
-          value: `\`${customStatus.state}\``, 
+          value: `\`${customStatus[0].state}\``, 
           inline: false
         },
         {
