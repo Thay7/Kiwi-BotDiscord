@@ -15,10 +15,10 @@ module.exports = class Owner extends Command {
 
     const server = client.guilds.cache.get(client.id)
 
-    if (ownerBot && server) {
+    if (!!ownerBot && !!server) {
       return msg.reply(`a minha criadora é a ${ownerBot}!`)
 
-    } else if (ownerBot && !server) {
+    } else if (!ownerBot && !server) {
       return msg.reply(`a minha criadora é a Thay#8579!`)
 
     }
