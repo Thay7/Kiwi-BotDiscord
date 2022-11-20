@@ -18,7 +18,7 @@ module.exports = class Owner extends Command {
       
     } else if (ownerBot != true){
 
-      return msg.reply(`a minha criadora é a Thay#8579!`)
+      return msg.reply(`a minha criadora é a Thay!`)
 
     }
   }
