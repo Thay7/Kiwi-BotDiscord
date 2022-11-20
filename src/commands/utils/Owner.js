@@ -12,7 +12,12 @@ module.exports = class Owner extends Command {
   async run({ msg, client, user }) {
 
     const ownerBot = client.users.cache.find(user => user.id == '712134111292293210')
+    let retorno
 
-    return msg.reply(`a minha criadora é a ${ownerBot}!`)
+    retorno = msg.reply(`a minha criadora é a ${ownerBot}!`)
+
+    return retorno
   }
+
+  
 }
