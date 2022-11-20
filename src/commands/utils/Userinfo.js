@@ -101,13 +101,13 @@ module.exports = class Userinfo extends Command {
         },
         {
           name: 'Status personalizado',
-          value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
-          inline: true
+          value: `\`${customStatus[0].state}\``, 
+          inline: false
         },
         {
           name: 'Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
-          inline: true
+          inline: false
         },
         {
           name: 'Criou a conta em',
