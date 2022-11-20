@@ -51,19 +51,19 @@ module.exports = class Userinfo extends Command {
 
                 let status = {
                     online: {
-                        msg: '',
+                        msg: 'on',
                         color: '#43b581'
                     },
                     idle: {
-                        msg: '',
+                        msg: 'ausente',
                         color: '#faa61a'
                     },
                     dnd: {
-                        msg: '',
+                        msg: 'não perturbe',
                         color: '#f04747'
                     },
                     offline: {
-                        msg: '',
+                        msg: 'off',
                         color: '#747f8d'
                     },
                 }
@@ -102,12 +102,12 @@ module.exports = class Userinfo extends Command {
         {
           name: 'Status personalizado',
           value: `\`${customStatus.length === 0 ? 'Não definido' : customStatus[0].state === null ? 'Não definido' : customStatus[0].state }\``, 
-          inline: false
+          inline: true
         },
         {
           name: 'Jogando',
           value: `\`${games.length === 0 ? 'Não definido' : games.join('\n')}\``,
-          inline: false
+          inline: true
         },
         {
           name: 'Criou a conta em',
